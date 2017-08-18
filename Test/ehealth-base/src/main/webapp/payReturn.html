@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="email=no"/>
+<meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+
+ 
+<script src="eh/bus/web/pay/zy_control.js"></script>
+<script src="eh/bus/web/pay/zy_click.js"></script>
+
+<title></title>
+</head>
+<body class="bg-gray">
+   
+<script type="text/javascript" src="eh/bus/web/pay/zepto.js"></script> 
+<script type="text/javascript" src="eh/bus/web/pay/init.js"></script>
+<script>
+      zy_init();
+      window.uexOnload = function(type){
+            if(!type){
+           
+			   uexWindow.evaluateScript("user_pay","0","fun()");
+                           
+			   }
+         
+			window.onorientationchange=window.onresize=function()
+			{
+
+				zy_resize("content",0,$$("header").offsetHeight);
+				myScrollchange();					
+
+			}
+}			
+ 
+</script> 		
+</body>
+</html>

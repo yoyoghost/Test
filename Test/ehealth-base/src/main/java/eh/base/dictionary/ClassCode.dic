@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="A" text=""/>
+	<item key="B" text=""/>
+	<item key="G" text="神经系统疾病"/>
+	<item key="E" text="内分泌、营养和代谢疾病"/>
+	<item key="I" text="循环系统疾病"/>
+	<item key="J" text="呼吸系统疾病"/>
+	<item key="D" text="原位癌、良性肿瘤"/>
+	<item key="C" text="恶性肿瘤"/>
+	<item key="L" text="皮肤和皮下组织"/>
+	<item key="M" text="肌肉骨骼系统和结缔组织"/>
+	<item key="R" text="症状、体症和临床与实验异常所见"/>
+	<item key="S" text=""/>
+	<item key="T" text=""/>
+	<item key="O" text="妊娠、分娩和产褥期"/>
+	<item key="K" text="消化系统"/>
+	<item key="F" text="精神类ICD-10疾病"/>
+</dic>

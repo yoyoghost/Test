@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="等待中"/>
+	<item key="1" text="就诊中"/>
+	<item key="2" text="就诊结束"/>
+	<item key="3" text="爽约"/>
+	<item key="9" text="已取消"/>
+</dic>

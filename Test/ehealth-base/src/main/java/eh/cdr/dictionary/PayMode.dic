@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="在线支付"/>
+	<item key="2" text="货到付款"/>
+	<item key="3" text="到院支付"/>
+	<item key="4" text="到店取药"/>
+	<item key="5" text="医保支付"/>
+</dic>

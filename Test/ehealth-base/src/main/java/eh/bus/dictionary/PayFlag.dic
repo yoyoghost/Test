@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="未付费"/>
+	<item key="1" text="付费"/>
+	<item key="2" text="退款中"/>
+	<item key="3" text="退款成功"/>
+	<item key="4" text="退款失败"/>
+</dic>

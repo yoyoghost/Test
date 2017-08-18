@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="转诊"/>
+	<item key="2" text="会诊"/>
+	<item key="3" text="咨询"/>
+	<item key="4" text="预约"/>
+	<item key="5" text="检查"/>
+	<item key="6" text="处方"/>
+	<item key="7" text="签约"/>
+	<item key="8" text="关注"/>
+	<item key="20" text="心意"/>
+	<item key="21" text="评价"/>
+	<item key="22" text="胎心判读"/>
+	<item key="25" text="红色呼救"/>
+    <item key="26" text="紧急转诊"/>
+</dic>

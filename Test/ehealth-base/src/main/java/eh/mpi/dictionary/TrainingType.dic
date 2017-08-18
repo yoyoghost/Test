@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="1" text="有氧运动（慢跑、气功、极拳、跳舞、散步、游泳、登山等）"/>
+    <item key="2" text="无氧运动（速跑、篮球、排球、足球等剧烈运动）"/>
+    <item key="3" text="其他"/>
+</dic>

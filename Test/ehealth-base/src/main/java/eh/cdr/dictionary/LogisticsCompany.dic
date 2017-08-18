@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="顺丰速运"/>
+	<item key="2" text="申通快递"/>
+	<item key="3" text="圆通速递"/>
+	<item key="4" text="中通快递"/>
+	<item key="5" text="百世汇通"/>
+	<item key="6" text="国通快递"/>
+	<item key="7" text="韵达快递"/>
+	<item key="8" text="中国邮政"/>
+	<item key="9" text="EMS特快专递"/>
+    <item key="10" text="宅急送"/>
+    <item key="11" text="德邦物流"/>
+    <item key="12" text="FedEx联邦"/>
+    <item key="13" text="京东快递"/>
+    <item key="14" text="天天快递"/>
+    <item key="15" text="全峰快递"/>
+</dic>

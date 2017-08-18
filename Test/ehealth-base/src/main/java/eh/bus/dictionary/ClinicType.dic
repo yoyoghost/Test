@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="普通号"/>
+	<item key="2" text="专家号"/>
+	<item key="3" text="特需号"/>
+</dic>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="暂存"/>
+	<item key="1" text="待支付"/>
+	<item key="2" text="已支付"/>
+</dic>

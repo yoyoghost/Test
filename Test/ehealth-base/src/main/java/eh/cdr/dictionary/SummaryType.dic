@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="疾病史"/>
+	<item key="2" text="过敏史"/>
+	<item key="3" text="家族史 "/>
+	<item key="4" text="吸烟史"/>
+	<item key="5" text="饮酒史"/>
+	<item key="6" text="月经史"/>
+	<item key="7" text="饮食习惯"/>
+	<item key="8" text="睡眠习惯"/>
+	<item key="9" text="运动习惯"/>
+	<item key="99" text="其他"/>
+</dic>

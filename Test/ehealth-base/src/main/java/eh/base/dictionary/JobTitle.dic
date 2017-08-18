@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="院长"/>
+	<item key="2" text="书记"/>
+	<item key="3" text="副院长"/>
+	<item key="4" text="科主任"/>
+	<item key="5" text="科副主任"/>
+</dic>

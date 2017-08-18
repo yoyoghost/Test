@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="X" text="X光"/>
+	<item key="CT" text="CT"/>
+	<item key="MR" text="MRI"/>
+	<item key="B" text="B超"/>
+	<item key="E" text="ECT"/>
+	<item key="EG" text="心脑电图"/>
+	<item key="SED" text="内镜"/>
+	<item key="PTH" text="病理"/>
+	<item key="PFT" text="肺功能"/>
+</dic>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="咨询优惠劵"/>
+	<item key="2" text="预约优惠劵"/>
+	<item key="3" text="处方优惠劵"/>
+	<item key="4" text="门诊缴费优惠劵"/>
+	<item key="5" text="住院预交优惠劵"/>
+	<item key="6" text="签约优惠劵"/>
+</dic>

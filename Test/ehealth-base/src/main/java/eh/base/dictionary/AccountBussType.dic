@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="转诊"/>
+	<item key="2" text="会诊"/>
+	<item key="3" text="咨询"/>
+	<item key="4" text="预约"/>
+	<item key="5" text="远程门诊预约"/>
+	<item key="9" text="其他"/>
+	<item key="10" text="提现失败,积分返还"/>
+	<item key="20" text="我的心意"/>
+</dic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="一年"/>
+	<item key="2" text="二年"/>
+	<item key="3" text="三年"/>
+	<item key="4" text="四年"/>
+	<item key="5" text="五年"/>
+	<item key="6" text="六年"/>
+	<item key="7" text="七年"/>
+	<item key="8" text="八年"/>
+	<item key="9" text="九年"/>
+</dic>

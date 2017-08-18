@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="1" text="每天锻炼"/>
+    <item key="2" text="每周1-2次"/>
+    <item key="3" text="每周3次及以上"/>
+</dic>

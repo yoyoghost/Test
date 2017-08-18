@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="scanDoctorQrCode" text="患者报到"/>
+    <item key="doctorAppoint" text="医生预约（非远程)"/>
+    <item key="patientAppoint" text="患者预约"/>
+    <item key="outpatientTransfer" text="门诊转诊(非远程)"/>
+    <item key="remoteOutpatientTransfer" text="门诊转诊（远程）"/>
+    <item key="remoteDoctorAppoint" text="医生预约（远程）"/>
+    <item key="specialPatientAppoint" text="患者特需预约"/>
+</dic>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="待支付"/>
+	<item key="1" text="待接收"/>
+	<item key="2" text="待处理"/>
+	<item key="3" text="待回复"/>
+	<item key="4" text="咨询中"/>
+	<item key="5" text="待评价"/>
+	<item key="6" text="已评价"/>
+	<item key="7" text="已取消"/>
+	<item key="8" text="已取消"/>
+	<item key="9" text="已取消"/>
+	<item key="10" text="已拒绝"/>
+	<item key="11" text="已完成"/>
+</dic>

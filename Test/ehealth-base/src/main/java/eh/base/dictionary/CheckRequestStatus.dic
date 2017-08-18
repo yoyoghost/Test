@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="医院确认中"/>
+    <item key="2" text="确认成功待支付"/>
+    <item key="3" text="已支付待检查"/>
+    <item key="4" text="已检查待出报告"/>
+    <item key="5" text="已出报告待发布"/>
+    <item key="0" text="已发布"/>
+    <item key="6" text="患者退款取消"/>
+    <item key="7" text="系统自动取消"/>
+    <item key="8" text="爽约"/>
+    <item key="9" text="已取消"/>
+</dic>

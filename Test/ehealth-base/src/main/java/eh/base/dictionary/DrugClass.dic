@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="01" text="抗感染类药物">
+		<item key="0101" text="抗生素类药物">
+			<item key="010101" text="青霉素类(青霉素、氨苄(biàn)西林、阿莫西林)"/>
+			<item key="010102" text="头孢菌素类(头孢噻吩钠、头孢氨苄、头孢拉定)"/>
+			<item key="010103" text="β-内酰胺酶抑制剂(苏巴坦)"/>
+			<item key="010104" text="氨基糖苷类(庆大霉素、阿米卡星)"/>
+			<item key="010105" text="四环素类(四环素、金霉素、半诺环素)"/>
+			<item key="010106" text="酰胺醇类(氯霉素)"/>
+			<item key="010107" text="大环内酯类(红霉素、麦迪霉素、罗红霉素、克拉霉素、阿奇霉素)"/>
+			<item key="010108" text="其他抗菌抗生素(多粘菌素E)"/>
+		</item>
+		<item key="0102" text="合成的抗菌药">
+			<item key="010201" text="磺胺类(环胺嘧啶)"/>
+			<item key="010202" text="硝基呋喃类(呋喃妥因)"/>
+			<item key="010203" text="喹诺酮类(诺氟沙星)"/>
+			<item key="010204" text="硝咪唑类(甲硝唑、替硝唑)"/>
+		</item>
+		<item key="0103" text="抗结核病药">
+			<item key="010301" text="抗结核病药(异烟肼、利福平)"/>
+		</item>
+		<item key="0104" text="抗麻风病药">
+			<item key="010401" text="抗麻风病药(氨苯砜)"/>
+		</item>
+		<item key="0105" text="抗病毒药">
+			<item key="010501" text="抗病毒药(阿昔洛韦、利巴韦林)"/>
+		</item>
+		<item key="0106" text="抗真菌药">
+			<item key="010601" text="抗真菌药(咪康唑)"/>
+		</item>
+		<item key="0107" text="抗寄生虫病药物">
+			<item key="010701" text="抗疟疾病药物(青蒿素)"/>
+		</item>
+	</item>
+	<item key="02" text="麻醉药及其辅助药物">
+		<item key="0201" text="全身麻醉药(硫喷妥钠)"/>
+		<item key="0202" text="局部麻醉药(利多卡因、苯佐卡因)"/>
+		<item key="0203" text="骨骼肌松弛药(泮(pàn)库溴铵)"/>
+	</item>
+	<item key="03" text="神经类药物">
+		<item key="0301" text="中枢兴奋药(甲氯芬酯、茴拉西坦)"/>
+		<item key="0302" text="镇痛药(哌替啶、曲马朵)"/>
+		<item key="0303" text="解热、镇痛、抗炎药">
+			<item key="030301" text="解热镇痛药(对乙酰氨基酚(扑热息痛))"/>
+			<item key="030302" text="抗炎镇痛药(双氯芬酸、布洛芬)"/>
+			<item key="030303" text="抗痛风药(别嘌醇)"/>
+			<item key="030304" text="抗偏头痛药(麦角胺咖啡因片)"/>
+		</item>
+		<item key="0304" text="镇静催眠药">
+			<item key="030401" text="巴比妥类(戊巴比妥)"/>
+			<item key="030402" text="苯二氮卓类(氯西泮)"/>
+			<item key="030403" text="其它类(加兰他敏)"/>
+		</item>
+		<item key="0305" text="抗癫痫药(苯妥英钠、卡马西平)"/>
+		<item key="0306" text="抗震颤麻痹药(卡比多巴、苯海拉明)"/>
+		<item key="0307" text="治眩晕药(倍他司汀(tīng))"/>
+		<item key="0308" text="脑代谢及循环改善剂(长春西丁)"/>
+	</item>
+	<item key="04" text="精神类药物">
+		<item key="0401" text="抗精神病药">
+			<item key="040101" text="吩噻嗪类(氯丙嗪、氟哌啶醇)"/>
+			<item key="040102" text="硫杂蒽类(氯哌噻吨)"/>
+			<item key="040103" text="其他抗精神病药(氯氮平)"/>
+			<item key="040104" text="长效抗精神病药(哌泊噻嗪棕榈酸酯)"/>
+		</item>
+		<item key="0402" text="抗焦虑药">
+			<item key="040201" text="抗焦虑药(硝西泮、艾司唑仑)"/>
+		</item>
+		<item key="0403" text="抗情感障碍药(丙咪嗪)"/>
+	</item>
+	<item key="05" text="抗肿瘤类药物">
+		<item key="0501" text="烷化剂(环磷酰胺)"/>
+		<item key="0502" text="抗代谢药(甲氨喋呤)"/>
+		<item key="0503" text="抗肿瘤抗生素(丝裂霉素)"/>
+		<item key="0504" text="抗肿瘤植物成分(紫杉醇)"/>
+		<item key="0505" text="抗肿瘤激素类(亮丙瑞林)"/>
+		<item key="0506" text="其他抗肿瘤药及辅助治疗药(顺铂)"/>
+	</item>
+	<item key="06" text="心血管类药物">
+		<item key="0601" text="抗心绞痛药物">
+			<item key="060101" text="硝酸脂类药物(硝酸甘油)"/>
+			<item key="060102" text="钙拮抗药(维拉帕米、硝苯地平)"/>
+			<item key="060103" text="其他抗心绞痛药物(普尼拉明)"/>
+		</item>
+		<item key="0602" text="抗心律失常药">
+			<item key="060201" text="膜反应抑制剂(奎尼丁)"/>
+			<item key="060202" text="β-受体阻滞剂(盐酸艾司洛尔)"/>
+			<item key="060203" text="动作电位时间延长剂(胺碘酮)"/>
+			<item key="060204" text="其他抗心律失常药(苄普地尔)"/>
+		</item>
+		<item key="0603" text="抗高血压药">
+			<item key="060301" text="交感神经抑制剂(可乐定、乌拉地尔)"/>
+			<item key="060302" text="血管扩张剂(硝普钠)"/>
+			<item key="060303" text="钙离子拮抗剂(尼莫地平)"/>
+			<item key="060304" text="血管紧张素转换酶抑制剂(马来酸依那普利)"/>
+		</item>
+		<item key="0604" text="抗心力衰竭药物">
+			<item key="060401" text="洋地黄类药物(洋地黄毒苷)"/>
+			<item key="060402" text="非洋地黄类正性肌力药物(氨力农)"/>
+		</item>
+		<item key="0605" text="抗休克药物(肾上腺素)"/>
+		<item key="0606" text="调血脂药物(烟酸)"/>
+		<item key="0607" text="抗血小板药物(川芎嗪)"/>
+		<item key="0608" text="抗凝溶栓(shuān)药物(肝素钠、尿激酶)"/>
+	</item>
+	<item key="07" text="呼吸类药物">
+		<item key="0701" text="祛痰药">
+			<item key="070101" text="祛痰药(盐酸溴己新)"/>
+		</item>
+		<item key="0702" text="镇咳药">
+			<item key="070201" text="镇咳药(苯丙哌林)"/>
+		</item>
+		<item key="0703" text="平喘药">
+			<item key="070301" text="β-肾上腺素受体激动剂(盐酸克伦特罗)"/>
+			<item key="070302" text="M胆碱受体拮抗剂(异丙托溴铵)"/>
+			<item key="070303" text="磷酸二酯酶抑制剂(氨茶碱)"/>
+			<item key="070304" text="过敏介质阻释剂(奈多罗米)"/>
+			<item key="070305" text="肾上腺皮质激素(丙酸倍氯米松)"/>
+		</item>
+	</item>
+	<item key="08" text="消化类药物">
+		<item key="0801" text="抗酸及抗溃疡病药(雷尼替丁)"/>
+		<item key="0802" text="胃肠解痉药(溴丙胺太林)"/>
+		<item key="0803" text="止吐药及催吐药(多潘立酮)"/>
+		<item key="0804" text="泻药及止泻药(硫酸镁、比沙可啶)"/>
+		<item key="0805" text="肝胆胰疾病辅助用药(谷氨酸钠、美他多辛)"/>
+		<item key="0806" text="酶及菌制剂(胃蛋白酶)"/>
+	</item>
+	<item key="09" text="泌尿系统类药">
+		<item key="0901" text="利尿药">
+			<item key="090101" text="高效利尿药(呋噻米)"/>
+			<item key="090102" text="中效利尿药(氢氯噻嗪)"/>
+			<item key="090103" text="低效利尿药(螺内酯)"/>
+			<item key="090104" text="尿酸化药(氯化铵)"/>
+			<item key="090105" text="黄嘌呤类(茶碱)"/>
+		</item>
+		<item key="0902" text="脱水药">
+			<item key="090201" text="脱水药(山梨醇)"/>
+		</item>
+		<item key="0903" text="防治尿结石的药物(消石丸)"/>
+		<item key="0904" text="泌尿道平滑肌解痉药(盐酸黄酮哌酯)"/>
+		<item key="0905" text="治疗尿崩症用药(垂体后叶粉鼻吸入剂)"/>
+		<item key="0906" text="治疗遗尿药(甲氯芬酯)"/>
+		<item key="0907" text="治疗前列腺肥大药物(非那甾胺)"/>
+	</item>
+	<item key="10" text="激素及其有关药物">
+		<item key="1001" text="脑垂体激素及有关药物(缩宫素)"/>
+		<item key="1002" text="肾上腺皮质激素及促性激素(氟轻松)"/>
+		<item key="1003" text="盐皮质激素(去氧皮质酮)"/>
+		<item key="1004" text="性激素及促性激素">
+			<item key="100401" text="雄激素及同化激素(苯丙酸诺龙)"/>
+			<item key="100402" text="雌激素及其类似合成药物(雌二醇)"/>
+			<item key="100403" text="孕激素类(甲羟孕酮)"/>
+			<item key="100404" text="促性腺激素(戈那瑞林)"/>
+		</item>
+		<item key="1005" text="甲状腺激素类药物及抗甲状腺">
+			<item key="100501" text="甲状腺激素类药物(促甲状腺素)"/>
+			<item key="100502" text="抗甲状腺药(丙硫氧嘧啶)"/>
+		</item>
+	</item>
+	<item key="11" text="调血糖药物">
+		<item key="1101" text="降血糖类">
+			<item key="110101" text="磺酰脲类(甲苯磺丁脲、格列吡嗪)"/>
+			<item key="110102" text="双胍类(二甲双胍)"/>
+			<item key="110103" text="葡萄糖苷酶抑制剂(阿卡波糖)"/>
+			<item key="110104" text="胰岛素抑制剂(高血糖素)"/>
+			<item key="110105" text="胰岛素分泌剂(基因重组胰岛素生长因子-1)"/>
+		</item>
+	</item>
+    <item key="18" text="中成药">
+         <item key="1801" text="其他"/>
+         <item key="1802" text="妇产科"/>
+         <item key="1803" text="呼吸系统"/>
+         <item key="1804" text="泌尿系统"/>
+         <item key="1805" text="皮肤科"/>
+         <item key="1806" text="神经系统"/>
+         <item key="1807" text="外科及骨伤科"/>
+         <item key="1808" text="消化系统用药"/>
+         <item key="1809" text="心，脑血管系统"/>
+         <item key="1810" text="血液系统"/>
+         <item key="1811" text="眼科，五官科及口腔科"/>
+         <item key="1812" text="肿瘤科及免疫调节药"/>
+    </item>
+    <item key="19" text="其他">
+              <item key="1901" text="其他"/>
+    </item>
+    <item key="20" text="中药">
+              <item key="2001" text="中药"/>
+    </item>
+</dic>

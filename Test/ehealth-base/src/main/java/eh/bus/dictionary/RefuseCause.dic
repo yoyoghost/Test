@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="患者病情较轻，无需转诊"/>
+	<item key="1" text="医师最近日程排满，无法安排"/>
+	<item key="2" text="患者的病情不适合转往我科"/>
+</dic>

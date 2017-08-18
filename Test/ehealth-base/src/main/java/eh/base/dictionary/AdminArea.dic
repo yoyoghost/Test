@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="部属医院"/>	
+	<item key="2" text="省属医院"/>
+	<item key="3" text="市属医院"/>	
+	<item key="4" text="区县医院"/>	
+	<item key="5" text="军队医院"/>	
+	<item key="6" text="企业医院"/>	
+	<item key="9" text="其他"/>		
+</dic>
+

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="1" text="支付宝支付"/>
+    <item key="2" text="微信支付"/>
+    <item key="3" text="一网通支付"/>
+    <item key="4" text="银联支付"/>
+</dic>

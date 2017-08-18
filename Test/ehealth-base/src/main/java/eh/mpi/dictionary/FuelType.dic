@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="液化气"/>
+	<item key="2" text="煤"/>
+	<item key="3" text="天然气"/>
+	<item key="4" text="沼气"/>
+	<item key="5" text="柴火"/>
+	<item key="6" text="其他"/>
+        <item key="7" text="不详"/>
+</dic>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="不上线"/>
+	<item key="1" text="暂时离开"/>
+	<item key="2" text="我在线上"/>
+</dic>

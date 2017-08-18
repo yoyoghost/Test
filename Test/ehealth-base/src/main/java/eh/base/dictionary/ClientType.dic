@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="PC"/>
+	<item key="2" text="IOS"/>
+	<item key="3" text="android"/>
+	<item key="4" text="微信"/>
+</dic>

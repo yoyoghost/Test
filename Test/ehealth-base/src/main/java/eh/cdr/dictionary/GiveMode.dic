@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="配送到家"/>
+	<item key="2" text="医院取药"/>
+	<item key="3" text="药店取药"/>
+</dic>

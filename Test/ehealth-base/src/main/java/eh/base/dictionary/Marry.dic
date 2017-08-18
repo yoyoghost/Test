@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="未婚"/>
+	<item key="2" text="已婚"/>
+	<item key="3" text="丧偶"/>
+	<item key="4" text="离婚"/>
+	<item key="5" text="未说明的婚姻状况"/>
+</dic>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="户籍"/>
+	<item key="2" text="非户籍"/>
+	<item key="9" text="不详"/>
+</dic>

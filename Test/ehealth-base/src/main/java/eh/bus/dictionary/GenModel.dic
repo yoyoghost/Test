@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="固定顺序模式"/>
+	<item key="2" text="间隔顺序模式"/>
+	<item key="3" text="随机顺序模式"/>
+</dic>

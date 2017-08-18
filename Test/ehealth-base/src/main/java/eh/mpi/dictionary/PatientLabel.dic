@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="1" text="一般人群"/>
+    <item key="2" text="高血压"/>
+    <item key="3" text="糖尿病"/>
+    <item key="4" text="老年人"/>
+    <item key="5" text="儿童"/>
+    <item key="6" text="孕产妇"/>
+    <item key="7" text="失独家庭人员"/>
+    <item key="8" text="残疾人"/>
+    <item key="9" text="精神疾病"/>
+</dic>

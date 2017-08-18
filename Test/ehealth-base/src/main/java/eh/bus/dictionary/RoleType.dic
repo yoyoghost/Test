@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="ngari" text="纳里健康平台"/>
+    <item key="organ" text="机构"/>
+    <item key="doctor" text="医生"/>
+</dic>

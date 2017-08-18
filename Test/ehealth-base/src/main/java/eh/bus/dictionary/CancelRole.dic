@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="患者手动取消"/>
+	<item key="1" text="超时未处理系统取消"/>
+	<item key="2" text="超时未支付系统取消"/>
+</dic>

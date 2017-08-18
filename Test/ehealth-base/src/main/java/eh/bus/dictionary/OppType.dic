@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="患者"/>
+	<item key="1" text="医院"/>
+	<item key="2" text="药店"/>
+	<item key="3" text="养老院"/>
+</dic>

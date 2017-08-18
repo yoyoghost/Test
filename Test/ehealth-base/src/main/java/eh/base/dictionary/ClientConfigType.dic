@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="1" text="微信公众号"/>
+    <item key="2" text="支付宝生活号"/>
+    <item key="3" text="健康APP-IOS"/>
+    <item key="4" text="健康APP-安卓"/>
+    <item key="5" text="健康APP-WEB"/>
+    <item key="6" text="第三方"/>
+</dic>

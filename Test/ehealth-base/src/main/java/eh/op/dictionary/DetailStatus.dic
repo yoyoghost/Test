@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="-1" text="失败"/>
+	<item key="0" text="未执行"/>
+	<item key="1" text="成功"/>
+</dic>

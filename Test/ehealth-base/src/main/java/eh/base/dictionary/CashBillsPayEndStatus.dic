@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="支付中"/>
+	<item key="1" text="支付成功"/>
+	<item key="2" text="部分支付成功"/>
+	<item key="9" text="支付失败"/>
+</dic>

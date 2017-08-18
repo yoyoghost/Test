@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="线下"/>
+	<item key="1" text="预约云门诊"/>
+	<item key="2" text="在线云门诊"/>
+</dic>

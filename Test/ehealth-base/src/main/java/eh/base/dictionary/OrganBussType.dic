@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="普通号预约"/>
+	<item key="2" text="加号门诊转诊"/>
+	<item key="3" text="普通号有号转诊"/>
+	<item key="4" text="预约须知"/>
+	<item key="5" text="缴费通知"/>
+	<item key="6" text="绑卡提示"/>
+	<item key="7" text="咨询聊天页开方提醒"/>
+	<item key="9" text="就诊人类型为成人，年龄不合规则文案"/>
+	<item key="10" text="就诊人类型为儿童，年龄不合规则文案"/>
+</dic>

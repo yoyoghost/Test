@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>处方查看</title>
+</head>
+<body>
+<div></div>
+
+
+<!--<a onclick="login();"> 我是登录 </a>
+<a target="_blank" href="http://ngaribata.ngarihealth.com:8280/ehealth-base-test/upload/75406"> 我是查看 </a>
+<a  download="测试"  href="http://ngaribata.ngarihealth.com:8280/ehealth-base-test/download/75406"> 我是下载 </a>
+
+<span title="点我查看快递物流信息"><a onclick="SearchKD(533867640394)"  href="#">533867640394</a></span> -->
+
+
+</body>
+<script src="jquery-2.0.3.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script  charset="utf-8">
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://ngaribata.ngarihealth.com:8280/ehealth-base-test/logon/login",
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "889e832a-4102-2f64-632b-92d6d25af291"
+        },
+        "processData": false,
+        "data": "{\"uid\":\"ysq\",\"pwd\":\"588609a55924fb03609767ec23c7f625\",\"rid\":\"druggist\",\"forAccessToken\":\"true\"}"
+    }
+
+    $.ajax(settings).done(function (response) {
+        var  v_pdf_id=GetQueryString("pdf_id");
+        if(v_pdf_id!=null&&v_pdf_id!="")
+        {
+            window.location.href = "http://ngaribata.ngarihealth.com:8280/ehealth-base-test/upload/"+v_pdf_id;
+        }
+    });
+
+
+
+
+
+
+    function login() {
+        $.ajax({
+            url: 'http://ngaribata.ngarihealth.com:8280/ehealth-base-test/logon/login',
+            data: '{\"uid\":\"ysq\",\"pwd\":\"588609a55924fb03609767ec23c7f625\",\"rid\":\"druggist\",\"forAccessToken\":\"true\"}',
+            type: 'post',
+            dataType: 'json',
+            success: function (msg) {
+                //var str = JSON.stringify(msg); //转换成string
+                //alert(str);
+            },
+            error: function (jqXHR, textStatus, errorMsg) {
+                alert("网络有误，请稍后重试！");
+            }
+
+        })
+    }
+
+
+    function SearchKD(id) {
+        var var_url = window.location.href;
+        window.location.href = "https://m.kuaidi100.com/index_all.html?postid=" + id + "&callbackurl=" + var_url + "";
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+
+</script>
+</html>

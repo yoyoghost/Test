@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="关注公众号"/>
+	<item key="2" text="患者注册"/>
+	<item key="3" text="患者完善信息"/>
+	<item key="4" text="扫码关注医生（非日间团队）"/>
+	<item key="5" text="关键字全匹配"/>
+	<item key="6" text="关键字非全匹配"/>
+	<item key="7" text="扫码关注医生（日间团队）"/>
+</dic>

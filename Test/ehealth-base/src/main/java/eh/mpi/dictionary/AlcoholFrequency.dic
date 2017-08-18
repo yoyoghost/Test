@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="少量（啤酒&lt;250-500ml/次，色酒100-150ml/次，白酒&lt;25-50ml/次）"/>
+	<item key="2" text="中量（啤酒&lt;500-2500ml/次，色酒100-150ml/次，白酒250-500ml/次）"/>
+	<item key="3" text="大量（啤酒&gt;2500ml/次，其它酒&gt;250ml/次）"/>
+</dic>

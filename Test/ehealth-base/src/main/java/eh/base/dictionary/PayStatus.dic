@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="提现申请中"/>
+    <item key="1" text="提现完成"/>
+    <item key="2" text="提现申请失败"/>
+    <item key="3" text="打款审核中"/>
+    <item key="4" text="支付中"/>
+    <item key="9" text="支付失败"/>
+</dic>

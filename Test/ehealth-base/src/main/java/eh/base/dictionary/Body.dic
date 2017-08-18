@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+
+	<item key="X" text="X光">
+		<item key="X01" text="胸部" />
+		<item key="X02" text="乳腺" />
+		<item key="X03" text="头部" />
+		<item key="X04" text="脊柱" />
+		<item key="X05" text="腹部" />
+		<item key="X06" text="四肢" />
+	</item>
+	
+	<item key="CT" text="CT">
+		<item key="CT01" text="头颅" />
+		<item key="CT02" text="颌面" />
+		<item key="CT03" text="颈部" />
+		<item key="CT04" text="胸部" />
+		<item key="CT05" text="腹部" />
+		<item key="CT06" text="椎体" />
+		<item key="CT07" text="下肢" />
+		<item key="CT08" text="上肢" />
+		<item key="CT09" text="穿刺" />
+		<item key="CT10" text="心脏" />
+	</item>
+	<item key="MR" text="MRI">
+		<item key="MR01" text="头颅" />
+		<item key="MR02" text="颈部" />
+		<item key="MR03" text="胸部" />
+		<item key="MR04" text="腹部" />
+		<item key="MR05" text="颌面" />
+		<item key="MR06" text="上肢" />
+		<item key="MR07" text="椎体" />
+		<item key="MR08" text="下肢" />
+	</item>
+	<item key="B" text="B超">
+		<item key="B01" text="常规检查" />
+		<item key="B02" text="消化系统" />
+		<item key="B03" text="泌尿系统及肾上腺" />
+		<item key="B04" text="妇产科" />
+		<item key="B05" text="胸腹盆腔及后腹膜" />
+		<item key="B06" text="浅表器官" />
+		<item key="B07" text="腹腔血管" />
+		<item key="B08" text="外周血管彩" />
+		<item key="B10" text="介入" />
+		<item key="B11" text="超声声学造影" />
+	</item>
+	<item key="E" text="ECT">
+		<item key="E01" text="全身" />
+	</item>
+	<item key="EG" text="心脑电图">
+		<item key="ECG" text="心电图" />
+		<item key="EEG" text="脑电图" />
+		<item key="EMG" text="肌电图" />
+	</item>
+	<item key="ED" text="内镜">
+		<item key="ERD" text="胰胆镜" />
+		<item key="BED" text="支气管镜" />
+		<item key="EUS" text="超声内镜" />
+		<item key="IED" text="肠镜" />
+		<item key="SED" text="胃镜" />
+	</item>
+	<item key="PTH" text="病理">
+		<item key="PTH" text="病理检查" />
+		<item key="MPL" text="分子病理" />
+	</item>
+	<item key="PFT" text="肺功能">
+		<item key="PFT" text="肺部" />
+	</item>
+
+	<item key="1" text="胸部"/>
+	<item key="2" text="腹部"/>
+	<item key="3" text="脑"/>
+	<item key="4" text="心脏"/>
+	<item key="5" text="脚"/>
+</dic>

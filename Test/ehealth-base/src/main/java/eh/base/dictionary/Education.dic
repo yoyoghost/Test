@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="10" text="研究生教育"/>
+	<item key="11" text="博士"/>
+	<item key="12" text="博士研究生结业"/>
+	<item key="13" text="博士研究生肄业"/>
+	<item key="14" text="硕士"/>
+	<item key="15" text="硕士研究生结业"/>
+	<item key="16" text="硕士研究生肄业"/>
+	<item key="17" text="研究生班毕业"/>
+	<item key="18" text="研究生班结业"/>
+	<item key="19" text="研究生班肄业"/>
+	<item key="20" text="大学本科"/>
+	<item key="21" text="大学本科毕业"/>
+	<item key="22" text="大学本科结业"/>
+	<item key="23" text="大学本科肄业"/>
+	<item key="28" text="大学普通班毕业"/>
+	<item key="30" text="专科教育"/>
+	<item key="31" text="大学专科"/>
+	<item key="32" text="大学专科结业"/>
+	<item key="33" text="大学专科肄业"/>
+	<item key="40" text="中等职业教育"/>
+	<item key="41" text="中专"/>
+	<item key="42" text="中等专科结业"/>
+	<item key="43" text="中等专科肄业"/>
+	<item key="44" text="职高"/>
+	<item key="45" text="职业高中结业"/>
+</dic>

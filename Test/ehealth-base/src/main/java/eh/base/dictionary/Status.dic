@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="未提交认证"/>
+	<item key="1" text="审核通过，状态正常"/>
+	<item key="2" text="审核中"/>
+	<item key="9" text="注销"/>
+</dic>

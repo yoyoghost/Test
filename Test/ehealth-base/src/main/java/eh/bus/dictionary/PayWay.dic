@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="07" text="支付宝wap支付"/>
+	<item key="08" text="支付宝web支付"/>
+	<item key="32" text="支付宝二维码支付"/>
+	<item key="34" text="支付宝APP支付"/>
+	<item key="40" text="微信公众号支付"/>
+	<item key="41" text="微信APP支付"/>
+	<item key="42" text="微信web支付"/>
+	<item key="43" text="微信二维码支付"/>
+</dic>

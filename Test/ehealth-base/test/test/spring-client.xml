@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssdev="http://www.bsoft.com.cn/schema/ssdev"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+	http://www.springframework.org/schema/beans/spring-beans.xsd         
+	http://www.bsoft.com.cn/schema/ssdev
+	http://www.bsoft.com.cn/schema/ssdev/ssdev.xsd">
+	<ssdev:applicationDomain name="emrclient"/><!--   -->
+	<ssdev:connector url="tcp://localhost:9001?codec=hessian"/><!-- 61.164.172.162 -->
+<!--	<bean id="logWriter" class="ctd.net.rpc.logger.counter.support.ConsoleInvokeCounterLogWriter">
+		<property name="level" value="3"/>
+	</bean> -->
+	<bean id="remoteUrls" class="java.util.ArrayList">
+	<constructor-arg>
+	  <list>
+        <!--<value>tcp://121.43.169.205:9001?codec=hessian</value>-->
+		  <value>tcp://121.43.188.233:9409?codec=hessian</value>
+	  </list>
+	</constructor-arg>
+	</bean>
+<!--	<ssdev:logger logWriter="logWriter"/>-->
+	 <ssdev:reference  interface="test.rpc.IRemoteService" id="eh.appointRecord" >
+		 <ssdev:remote ref="remoteUrls"/> 
+	</ssdev:reference>
+	<ssdev:reference  interface="test.rpc.IRemoteService" id="h1.appointmentService" >
+		<ssdev:remote ref="remoteUrls"/>
+	</ssdev:reference>
+	
+</beans>

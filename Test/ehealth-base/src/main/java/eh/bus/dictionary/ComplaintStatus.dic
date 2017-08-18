@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="申请已提交"/>
+	<item key="1" text="已受理"/>
+	<item key="-1" text="不受理"/>
+</dic>

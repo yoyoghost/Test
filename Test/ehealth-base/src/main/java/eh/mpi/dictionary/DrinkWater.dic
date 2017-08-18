@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="自来水"/>
+	<item key="2" text="经净化过滤的水"/>
+	<item key="3" text="井水"/>
+	<item key="4" text="河湖水"/>
+	<item key="5" text="塘水"/>
+	<item key="6" text="其他"/>
+    <item key="7" text="不详"/>
+
+</dic>

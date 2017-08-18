@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="待支付"/>
+	<item key="2" text="待取药"/>
+	<item key="9" text="待审核"/>
+	<item key="3" text="待配送"/>
+	<item key="4" text="配送中"/>
+	<item key="5" text="已完成"/>
+	<!-- 审核未通过 -->
+	<item key="6" text="已取消"/>
+	<!-- 手动取消 -->
+	<item key="7" text="已取消"/>
+	<!-- 处方单自动取消或其他原因导致的订单取消 -->
+    <item key="8" text="已取消"/>
+</dic>

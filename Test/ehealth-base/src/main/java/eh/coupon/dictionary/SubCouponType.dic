@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="图文咨询劵"/>
+	<item key="2" text="电话咨询劵"/>
+	<item key="3" text="普通预约优惠劵"/>
+	<item key="4" text="个性化门诊优惠劵"/>
+	<item key="5" text="挂号优惠劵"/>
+	<item key="6" text="处方优惠劵"/>
+	<item key="9" text="专家解读优惠劵"/>
+	<item key="10" text="在线续方优惠劵"/>
+</dic>

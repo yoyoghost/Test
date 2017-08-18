@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="咨询"/>
+	<item key="1" text="预约"/>
+	<item key="2" text="远程医院名称;患者端在线续方搜索药品记录"/>
+	<item key="3" text="远程医生名称"/>
+	<item key="4" text="医生端药师审核搜索处方记录"/>
+	<item key="5" text="会诊中心医生名称搜索记录"/>
+	<item key="6" text="会诊中心医院名称搜索记录"/>
+</dic>

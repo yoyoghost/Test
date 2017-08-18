@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="wechat" text="微信公众号" />
+	<item key="alipay" text="支付宝服务窗" />
+	<item key="thirdparty" text="第三方平台" />
+	<item key="doctorapp" text="医生APP" />
+	<item key="patientapp" text="患者APP" />
+	<item key="doctorindex" text="医生主页" />
+	<item key="healthcard" text="健康管家" />
+	<item key="profession" text="推荐科室" />
+	<item key="doctorGroup" text="推荐团队" />
+</dic>

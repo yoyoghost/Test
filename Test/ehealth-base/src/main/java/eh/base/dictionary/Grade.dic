@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="10" text="三级特等"/>
+	<item key="11" text="三级甲等"/>
+	<item key="12" text="三级乙等"/>
+	<item key="13" text="三级丙等"/>
+	<item key="21" text="二级甲等"/>
+	<item key="22" text="二级乙等"/>
+	<item key="23" text="二级丙等"/>
+	<item key="30" text="一级医院"/>
+	<item key="99" text="未评级"/>
+</dic>

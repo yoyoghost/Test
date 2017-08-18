@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="待处理"/>
+	<item key="1" text="处理中"/>
+	<item key="2" text="已会诊"/>
+	<item key="8" text="拒绝"/>
+	<item key="9" text="取消"/>
+</dic>

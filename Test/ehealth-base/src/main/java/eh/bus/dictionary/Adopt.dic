@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="初始状态"/>
+	<item key="1" text="被采纳"/>
+	<item key="2" text="未采纳"/>
+</dic>

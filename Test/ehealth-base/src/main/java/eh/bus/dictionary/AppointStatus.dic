@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="预约成功"/>
+	<item key="1" text="挂号成功"/>
+	<item key="2" text="已取消"/>
+	<item key="3" text="爽约"/>
+	<item key="4" text="待支付"/>
+	<item key="5" text="已支付"/>
+	<item key="6" text="已退款"/>
+	<item key="7" text="退款失败"/>
+	<item key="8" text="退款中"/>
+	<item key="9" text="为您预约中"/>
+	<item key="10" text="应诊"/>
+</dic>

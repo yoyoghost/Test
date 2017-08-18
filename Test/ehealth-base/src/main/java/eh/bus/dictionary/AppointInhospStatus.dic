@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="申请"/>
+	<item key="1" text="已安排"/>
+	<item key="2" text="已入院"/>
+	<item key="3" text="已出院"/>
+        <item key="4" text="医院处理中"/>
+	<item key="9" text="已取消"/>
+</dic>

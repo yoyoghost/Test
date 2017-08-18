@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="正式"/>
+	<item key="2" text="测试"/>
+	<item key="3" text="运营"/>
+	<item key="4" text="其他"/>
+</dic>

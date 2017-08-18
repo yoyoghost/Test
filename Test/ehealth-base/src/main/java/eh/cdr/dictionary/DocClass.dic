@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="门诊病历"/>
+	<item key="1" text="检验报告"/>
+	<item key="2" text="检查报告"/>
+	<item key="3" text="电子处方"/>
+	<item key="10" text="体检报告"/>
+	<item key="97" text="pdf资料"/>
+	<item key="98" text="卫宁影像数据"/>
+	<item key="99" text="其他资料"/>
+</dic>

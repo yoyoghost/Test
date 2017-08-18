@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="注册"/>
+	<item key="2" text="关注"/>
+	<item key="3" text="预约"/>
+	<item key="4" text="咨询"/>
+	<item key="5" text="签约"/>
+	<item key="6" text="处方"/>
+</dic>

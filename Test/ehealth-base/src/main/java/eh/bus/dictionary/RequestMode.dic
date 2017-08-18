@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="2" text="图文咨询"/>
+	<item key="1" text="电话咨询"/>
+	<item key="5" text="专家解读"/>
+	<item key="4" text="在线续方"/>
+</dic>

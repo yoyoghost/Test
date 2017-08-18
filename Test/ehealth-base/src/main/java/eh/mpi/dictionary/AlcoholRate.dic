@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <dic>
+      	<item key="1" text="偶尔（每年&lt;3-4次）"/>
+      	<item key="2" text="少量（每周&lt;3次）"/>
+      	<item key="3" text="经常（每天喝）"/>
+ </dic>

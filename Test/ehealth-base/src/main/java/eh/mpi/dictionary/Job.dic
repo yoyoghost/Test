@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="11" text="国家公务员"/>
+	<item key="13" text="专业技术人员"/>
+	<item key="17" text="职员"/>
+	<item key="21" text="企业管理人员"/>
+	<item key="24" text="工人"/>
+	<item key="27" text="农民"/>
+	<item key="31" text="学生"/>
+	<item key="37" text="现役军人"/>
+	<item key="51" text="自由职业者"/>
+	<item key="54" text="个体经营者"/>
+	<item key="70" text="无业人员"/>
+	<item key="80" text="退（离）休人员"/>
+	<item key="90" text="其他"/>
+
+	<item key="0" text="国家机关、党群组织、企业、事业单位负责人"/>
+    <item key="1" text="专业技术人员"/>
+    <item key="2" text="办事人员和有关人员"/>
+    <item key="3" text="商业、服务业人员"/>
+    <item key="4" text="农、林、牧、渔、水利业生产人员"/>
+    <item key="5" text="生产、运输设备操作人员及有关人员"/>
+    <item key="6" text="军人"/>
+    <item key="7" text="不便分类的其他从业人员"/>
+    <item key="8" text="生产、运输设备操作人员及有关人员"/>
+    <item key="9" text="失业（含待业及无业人员）"/>
+</dic>

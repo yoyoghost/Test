@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="卫生厕所"/>
+	<item key="2" text="一格或二格粪池式"/>
+	<item key="3" text="马桶"/>
+	<item key="4" text="露天粪坑"/>
+	<item key="5" text="简易棚厕"/>
+	<item key="6" text="其他"/>
+        <item key="7" text="不详"/>
+
+</dic>

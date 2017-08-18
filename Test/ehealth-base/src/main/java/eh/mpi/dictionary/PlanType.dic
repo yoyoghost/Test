@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="复诊提醒"/>
+	<item key="2" text="电话随访"/>
+	<item key="3" text="上门随访"/>
+</dic>

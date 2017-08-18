@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="门诊"/>
+	<item key="2" text="住院"/>
+	<item key="9" text="自助上传病历"/>
+</dic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="待处理"/>
+    <item key="1" text="处理中"/>
+    <item key="2" text="审核完成"/>
+    <item key="3" text="已到院就诊"/>
+    <item key="4" text="住院预约"/>
+    <item key="5" text="入院登记"/>
+    <item key="7" text="医院处理失败"/>
+    <item key="8" text="医院确认中"/>
+    <item key="9" text="已取消"/>
+</dic>

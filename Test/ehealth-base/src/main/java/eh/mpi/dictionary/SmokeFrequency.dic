@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="偶尔（&lt;3支/周）"/>
+	<item key="2" text="少量（1-4支/日）"/>
+	<item key="3" text="经常（&gt;=5支/日）"/>
+</dic>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="治疗效果及处理情况"/>
+	<item key="2" text="目前病情（康复情况）"/>
+	<item key="3" text="本次会诊的意见或建议"/>
+	<item key="4" text="病人去向"/>
+</dic>

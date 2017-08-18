@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="10" text="技工学校"/>
+	<item key="1" text="文盲及半文盲"/>
+	<item key="2" text="小学"/>
+    <item key="3" text="初中"/>
+    <item key="4" text="高中/技校/中专"/>
+    <item key="5" text="大学专科及以上"/>
+    <item key="6" text="不详"/>
+    <item key="7" text="研究生及以上学历"/>
+    <item key="8" text="大学本科"/>
+    <item key="9" text="中等专业学校或中等技术学校"/>
+</dic>

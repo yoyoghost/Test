@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:config.properties" file-encoding="UTF-8" />
+
+	<import resource="spring-hibernate.xml" />
+	<!-- 本机当配置服务中心(开发使用调试比较方便) -->
+	<import resource="spring-controller.xml" />
+     <!-- 使用远程配置服务中心(生产环境,配置服务中心为独立当应用,其余节点都从此加载用户等相关信息) -->
+	<!--<import resource="spring-controller-slave.xml"/>-->
+	<import resource="spring-service.xml" />
+	<import resource="spring-redis.xml"/>
+	<import resource="spring-service-his-center.xml" />
+	<import resource="classpath:spring-mvc.xml" />
+    <import resource="spring-redis.xml" />
+	<!-- parameter store -->
+	<bean class="eh.utils.params.support.DBParamLoader" id="paramLoader"/>
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="eh.utils.params.ParamUtils.setParamLoader"/>
+		<property name="arguments">
+			<list><ref bean="paramLoader"/></list>
+		</property>
+	</bean>
+
+	<bean id="mvcPayController" class="eh.controller.PayController"></bean>
+	<bean id="logonEventListener" class="eh.base.logon.EhLogonEventListener" />
+	<bean id="thirdPartyProvider" class="eh.base.service.thirdparty.ThirdPartyProviderImpl"/>
+	<bean id="mvcLogonManager" class="ctd.mvc.controller.support.LogonManager">
+		<property name="expiresSeconds" value="0" />
+		<property name="encryptEnable" value="false" />
+		<property name="logonEventListener" ref="logonEventListener" />
+		<property name="clientProvider" ref="clientProvider"/>
+		<property name="thirdPartyProvider" ref="thirdPartyProvider"/>
+	</bean>
+
+	<bean id="mvcHTMLSegmentLoader" class="ctd.mvc.controller.support.HTMLSegmentLoader">
+		<property name="expiresSeconds" value="15" />
+	</bean>
+	<bean id="mvcScriptLoader" class="ctd.mvc.controller.support.ScriptLoader">
+		<property name="expiresSeconds" value="15" />
+	</bean>
+	<bean id="mvcStaticResourceLoader" class="ctd.mvc.controller.support.StaticResourceLoader">
+		<property name="expiresSeconds" value="15" />
+	</bean>
+
+    <bean id="fileRegistry" class="ctd.mvc.upload.support.HibernateSupportFileRegistry" />
+    <bean id="fileRespository" class="eh.oss.support.OssFileRespository" destroy-method="shutdown">
+        <constructor-arg name="env" value="${oss.env}"/>
+        <constructor-arg name="line" value="${oss.line}"/>
+    </bean>
+    <bean id="patientImageUploadListener" class="eh.upload.PatientImageUploadListener" />
+    <bean id="organImageUploadListener" class="eh.upload.OrganImageUploadListener" />
+    <bean id="doctorImageUploadListener" class="eh.upload.DoctorImageUploadListener" />
+    <bean id="adUploadListener" class="eh.upload.AdUploadListener" />
+    <bean id="fileService" class="ctd.mvc.upload.FileService">
+        <property name="registry" ref="fileRegistry" />
+        <property name="repository" ref="fileRespository" />
+        <property name="listeners">
+            <list>
+                <ref bean="doctorImageUploadListener" />
+                <ref bean="patientImageUploadListener" />
+                <ref bean="organImageUploadListener" />
+                <ref bean="adUploadListener" />
+            </list>
+        </property>
+    </bean>
+    <bean id="urlResource" class="eh.base.service.UrlResourceService">
+        <property name="urls">
+            <map>
+                <entry key="pacsUrl" value="${urlresource.pacsUrl}"></entry>
+                <entry key="teachUrl" value="${urlresource.teachUrl}"></entry>
+                <entry key="videoUrl" value="${urlresource.videoUrl}"></entry>
+                <entry key="imgUrl" value="${urlresource.imgUrl}"></entry>
+				<entry key="recipeCheckUrl" value="${urlresource.recipeCheckUrl}"></entry>
+            </map>
+        </property>
+    </bean>
+    <!--群聊前缀 开发库 value="dev" 测试库 value="test" 正式库 value="" -->
+    <bean id="easemob" class="eh.util.Easemob">
+        <property name="MODE" value="${easemob.mode}"></property>
+    </bean>
+    <!--群聊前缀 开发库 value="dev" 测试库 value="test" 正式库 value="" -->
+    <!--<bean id="video" class="eh.bus.service.VideoService">
+        <property name="MODE" value="${video.mode}"></property>
+        <property name="terminalSuf" value="${video.terminalSuf}"></property>
+		<property name="terminalPre" value="${video.terminalPre}"></property>
+    </bean>-->
+
+	<!--小鱼接口-->
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="eh.util.Ainemo.setConfig"/>
+		<property name="arguments">
+			<list>
+				<value>${ainemo.env}</value>
+				<value>${ainemo.requestUriPrefix}</value>
+				<value>${ainemo.extid}</value>
+				<value>${ainemo.token}</value>
+				<value>${ainemo.extid_other}</value>
+				<value>${ainemo.token_other}</value>
+			</list>
+		</property>
+	</bean>
+
+	<!--消息推送 -->
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="eh.util.MessagePushUtil.setConfig"/>
+		<property name="arguments">
+			<list>
+				<value>${msgPush.canSend}</value>
+				<value>${msgPush.isProd}</value>
+				<value>${msgPush.isDev}</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 短信发送 -->
+	<bean id="alidayuSms" class="eh.util.AlidayuSms">
+		<property name="canSend" value="${alidayu.canSend}"></property>
+	</bean>
+
+	<!-- 邮件发送 -->
+	<bean id="mailsend" class="eh.bus.service.MailService">
+		<property name="canSend" value="${mailsend.canSend}"></property>
+	</bean>
+
+	<!-- 支付信息配置 -->
+	<bean id="payUtil" class="eh.wxpay.util.PayUtil">
+		<!-- domain：支付平台域名
+			 organId：云平台请求organId，对应公众号
+			 notify_domain：支付平台->云平台 支付结果异步通知url
+		-->
+		<property name="domain" value="${wxPay.domain}"></property>
+		<property name="organId" value="${wxPay.organId}"></property>
+		<property name="notify_domain" value="${wxPay.notify_domain}"></property>
+		<property name="dabaiServiceHost" value="${dabai.host}" />
+		<property name="dabaiAccessToken" value="${dabai.accesstoken}" />
+		<property name="dabaiPartnerCode" value="${dabai.partnercode}" />
+	</bean>
+
+	<bean id="mvcUploadFileManager" class="ctd.mvc.controller.support.UploadFileManager">
+		<property name="fileService" ref="fileService" />
+		<property name="maxUploadFileSize" value="83886080" />
+		<property name="expiresSeconds">
+			<util:constant static-field="ctd.util.ServletUtils.ONE_WEEK_SECONDS" />
+		</property>
+	</bean>
+
+	<bean id="dictionaryService" class="ctd.dictionary.service.DictionaryLocalService" />
+	<bean id="mvcDictionaryLoader" class="ctd.mvc.controller.support.DictionaryLoader">
+		<property name="expiresSeconds" value="15" />
+		<property name="localService" ref="dictionaryService" />
+	</bean>
+	<bean id="globalEventExecFactory" class="ctd.util.event.GlobalEventExecFactory"
+		  init-method="init" destroy-method="shutdown">
+		<property name="threads" value="50" />
+	</bean>
+
+    <bean id="busTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" destroy-method="shutdown">
+        <!-- 线程池活跃的线程数 -->
+        <property name="corePoolSize" value="5" />
+        <!-- 线程池最大活跃的线程数 -->
+        <property name="maxPoolSize" value="300" />
+        <!-- 队列的最大容量 -->
+        <property name="queueCapacity" value="200" />
+    </bean>
+
+    <bean id="tokenUpdateService" class="eh.base.service.TokenUpdateService" init-method="updateTokenAfterInit" ></bean>
+
+    <bean id="callback" class="eh.util.Callback">
+        <!-- 通话回调地址 -->
+        <property name="HangupCdrUrl" value="${callback.HangupCdrUrl}"></property>
+        <!-- 通话的最大时长,单位为秒 -->
+        <property name="MaxCallTime" value="${callback.MaxCallTime}"></property>
+    </bean>
+    <!--<bean id="tPaas" class="eh.util.TPaas">
+        &lt;!&ndash; 视频会议回调地址 &ndash;&gt;
+        <property name="statusFeedback" value="${tPass.statusFeedback}"></property>
+        &lt;!&ndash; 调用会控地址 &ndash;&gt;
+        <property name="requestUriPrefix" value="${tPass.requestUriPrefix}"></property>
+        &lt;!&ndash; 账户注册调用地址 &ndash;&gt;
+        <property name="wsdlUrl" value="${tPass.wsdlUrl}"></property>
+        &lt;!&ndash; 房间有效时长 &ndash;&gt;
+        <property name="duration" value="${tPass.duration}"></property>
+    </bean>-->
+    <bean id="mvcCallRecordController" class="eh.controller.CallRecordController"></bean>
+	<!--<bean id="mvcVideoCallController" class="eh.controller.VideoCallController"></bean>-->
+
+	<!-- 阿里云消息队列(ons) 消息生产者 -->
+	<bean id="producer" class="com.aliyun.openservices.ons.api.bean.ProducerBean" init-method="start" destroy-method="shutdown">
+		<property name="properties" >
+			<props>
+				<prop key="ProducerId">${ons_pid}</prop>
+				<prop key="AccessKey">${ons_ak}</prop>
+				<prop key="SecretKey">${ons_sk}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 发布 -->
+	<bean class="ctd.net.broadcast.ons.OnsPublisher" id="onsPublisher">
+		<property name="producer" ref="producer"/>
+	</bean>
+
+	<!-- 消息消费者-->
+	<bean id="consumer" class="com.aliyun.openservices.ons.api.bean.ConsumerBean" init-method="start" destroy-method="shutdown">
+		<property name="properties" >
+			<props>
+				<prop key="ConsumerId">${ons_cid}</prop>
+				<prop key="AccessKey">${ons_ak}</prop>
+				<prop key="SecretKey">${ons_sk}</prop>
+				<!--将消费者线程数固定为50个.
+                <prop key="ConsumeThreadNums">50</prop>
+                -->
+			</props>
+		</property>
+		<property name="subscriptionTable">
+			<map>
+				<!--
+                <entry value-ref="onsTopListener">
+                    <key>
+                        <bean class="com.aliyun.openservices.ons.api.bean.Subscription">
+                            <property name="topic" value="${ons_topic}"/>
+                            <property name="expression" value="*"/>
+                        </bean>
+                    </key>
+                </entry>
+                -->
+				<!--更多的订阅添加entry节点即可-->
+			</map>
+		</property>
+	</bean>
+
+	<!-- 订阅 -->
+	<bean class="ctd.net.broadcast.ons.OnsSubscriber" id="onsSubscriber">
+		<property name="consumer" ref="consumer"/>
+	</bean>
+
+	<bean id="onsConfig" class="eh.bus.service.consult.OnsConfig" >
+		<property name="onsSwitch" value="${ons.switch.on}"/>
+		<property name="patientTopic" value="${ons_topic_patient}"/>
+		<property name="doctorTopic" value="${ons_topic_doctor}"/>
+		<property name="sensitiveTopic" value="${ons_topic_sensitive}"/>
+		<property name="pushTopic" value="${ons_topic_push}"/>
+		<property name="couponTopic" value="${ons_topic_coupon}"/>
+		<property name="logTopic" value="${ons_topic_log}"/>
+		<property name="accountTopic" value="${ons_topic_account}"/>
+		<property name="easemobTopic" value="${ons_topic_easemob}"/>
+	</bean>
+
+	<bean id="easemobBaseService" class="eh.msg.service.EasemobBaseService"/>
+
+	<bean id="seeADoctorLoader" class="eh.bus.service.seeadoctor.SeeADoctorLoader"/>
+
+	<bean id="seeADoctorController" class="eh.bus.service.seeadoctor.SeeADoctorController">
+		<property name="loader" ref="seeADoctorLoader"/>
+	</bean>
+
+	<bean id="seeADoctorWatcher" class="eh.bus.service.seeadoctor.SeeADoctorWatcher" lazy-init="false">
+		<property name="controller" ref="seeADoctorController"/>
+	</bean>
+
+	<!-- 异步消息阻塞队列 -->
+	<bean id="weixinAsyncTaskExecutor" class="eh.bus.service.common.MsgAsyncTaskExecutor">
+		<constructor-arg name="id" value="weixinAsyncTaskExecutor"/>
+		<property name="executeEndPoint" value="rpc://eh.wxMsgService.send"></property>
+		<property name="resolveEndPoint" value="rpc://eh.wxMsgService.callback"></property>
+	</bean>
+	<bean id="xingeAsyncTaskExecutor" class="eh.bus.service.common.MsgAsyncTaskExecutor">
+		<constructor-arg name="id" value="xingeAsyncTaskExecutor"/>
+		<property name="executeEndPoint" value="rpc://eh.xingeMsgService.send"></property>
+		<property name="resolveEndPoint" value="rpc://eh.xingeMsgService.callback"></property>
+	</bean>
+	<bean id="easeMobAsyncTaskExecutor" class="eh.bus.service.common.MsgAsyncTaskExecutor">
+		<constructor-arg name="id" value="easeMobAsyncTaskExecutor"/>
+		<property name="executeEndPoint" value="rpc://eh.easeMobMsgSenderService.send"></property>
+		<property name="resolveEndPoint" value="rpc://eh.easeMobMsgSenderService.callback"></property>
+	</bean>
+	<bean id="systemMsgAsyncTaskExecutor" class="eh.bus.service.common.MsgAsyncTaskExecutor">
+		<constructor-arg name="id" value="systemMsgAsyncTaskExecutor"/>
+		<property name="executeEndPoint" value="rpc://eh.systemMsgSenderService.send"></property>
+		<property name="resolveEndPoint" value="rpc://eh.systemMsgSenderService.callback"></property>
+	</bean>
+	<bean id="msgAsyncTaskRegistry" class="ctd.net.rpc.async.support.BlockingQueueAsyncTaskRegistry" init-method="start" destroy-method="shutdown" >
+		<property name="executors">
+			<list>
+				<ref bean="weixinAsyncTaskExecutor"/>
+				<ref bean="xingeAsyncTaskExecutor"/>
+				<ref bean="easeMobAsyncTaskExecutor"/>
+				<ref bean="systemMsgAsyncTaskExecutor"/>
+			</list>
+		</property>
+	</bean>
+	<!-- 微信异步消息执行器 -->
+	<bean id="smsSendExecutor" class="eh.task.executor.AliSmsSendExecutor" destroy-method="destroy" />
+	<bean id="wxMsgSendExecutor" class="eh.task.executor.MsgSendExecutor" destroy-method="destroy" >
+		<constructor-arg name="taskExecutorId" value="weixinAsyncTaskExecutor"/>
+	</bean>
+	<bean id="xingeMsgSendExecutor" class="eh.task.executor.MsgSendExecutor" destroy-method="destroy" >
+		<constructor-arg name="taskExecutorId" value="xingeAsyncTaskExecutor"/>
+	</bean>
+	<bean id="easeMobMsgSendExecutor" class="eh.task.executor.MsgSendExecutor" destroy-method="destroy" >
+		<constructor-arg name="taskExecutorId" value="easeMobAsyncTaskExecutor"/>
+	</bean>
+	<bean id="systemMsgSendExecutor" class="eh.task.executor.MsgSendExecutor" destroy-method="destroy" >
+		<constructor-arg name="taskExecutorId" value="systemMsgAsyncTaskExecutor"/>
+	</bean>
+
+    <!-- tonglihr 同力人力签约 医生提现数据配置 -->
+    <bean id="tonglihrUtil" class="eh.op.tonglihr.TonglihrUtil">
+        <property name="url" value="${tonglihr.url}"></property>
+        <property name="id" value="${tonglihr.id}"></property>
+        <property name="key" value="${tonglihr.key}"></property>
+    </bean>
+
+	<bean id="httpClientUtils" class="ctd.mvc.support.HttpClientUtils"/>
+
+	<!--读取excel-->
+	<bean id="readExcelController" class="eh.controller.ReadExcelController">
+		<property name="fileService" ref="fileService" />
+		<property name="maxUploadFileSize" value="83886080" />
+		<property name="expiresSeconds">
+			<util:constant static-field="ctd.util.ServletUtils.ONE_WEEK_SECONDS" />
+		</property>
+	</bean>
+
+	<bean class="eh.task.ExecutorRegister"/>
+
+	<!--常州健康评估接口-->
+	<bean id="healthAssess" class="eh.mpi.service.follow.HealthAssessService">
+		<property name="url" value="${assess.url}"/>
+		<property name="serviceId" value="${assess.serviceId}"/>
+		<property name="methodMap">
+			<util:map map-class="java.util.HashMap">
+				<entry key="getAssessList" value="getAssessmentList"/>
+				<entry key="getHistoryListByDoctorId" value="getAssessHistoryList"/>
+				<entry key="getAssessConclusionInfoBySssessHisId" value="getAssessConclusionInfo"/>
+			</util:map>
+		</property>
+	</bean>
+
+	<!--病人影像服务-->
+	<bean id="obtainImageInfo" class="eh.bus.service.ObtainImageInfoService"/>
+
+    <bean id="transferEventListener" class="eh.bus.asyndobuss.listener.TransferEventListener" />
+    <bean id="meetClinicEventListener" class="eh.bus.asyndobuss.listener.MeetClinicEventListener" />
+    <bean id="consultEventListener" class="eh.bus.asyndobuss.listener.ConsultEventListener" />
+    <bean id="signEventListener" class="eh.bus.asyndobuss.listener.SignEventListener" />
+    <bean id="asynDoBussService" class="eh.bus.asyndobuss.service.AsynDoBussService">
+        <property name="eventListener">
+            <list>
+                <ref bean="transferEventListener" />
+                <ref bean="meetClinicEventListener" />
+                <ref bean="consultEventListener" />
+                <ref bean="signEventListener" />
+            </list>
+        </property>
+    </bean>
+
+
+    <!--药企对接通用实现(国药协议)-->
+    <bean id="commonRemoteService" class="eh.cdr.drugsenterprise.CommonRemoteService"></bean>
+
+    <!--钥世圈对接实现-->
+    <bean id="ysqRemoteService" class="eh.cdr.drugsenterprise.YsqRemoteService"></bean>
+
+
+</beans>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+    <item key="0" text="未处理"/>
+	<item key="1" text="待评价"/>
+	<item key="2" text="已评价"/>
+</dic>

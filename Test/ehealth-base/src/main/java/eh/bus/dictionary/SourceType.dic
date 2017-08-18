@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="普通预约号"/>
+	<item key="2" text="内部预约号"/>
+	<item key="3" text="转诊预约号"/>
+</dic>

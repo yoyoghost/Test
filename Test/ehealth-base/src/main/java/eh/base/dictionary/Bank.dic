@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="95566" text="中国银行"/>
+	<item key="95588" text="工商银行"/>
+	<item key="95533" text="建设银行"/>
+	<item key="95599" text="农业银行"/>
+	<item key="95555" text="招商银行"/>
+	<item key="95559" text="交通银行"/>
+	<item key="95558" text="中信银行"/>
+	<item key="95568" text="民生银行"/>
+	<item key="95561" text="兴业银行"/>
+	<item key="95508" text="广发银行"/>
+	<item key="95528" text="浦发银行"/>
+	<item key="95595" text="光大银行"/>
+	<item key="95577" text="华夏银行"/>
+	<item key="95568" text="民生银行"/>
+	<item key="95501" text="深圳发展银行"/>
+	<item key="95580" text="邮储银行"/>
+	<item key="96596" text="农商银行"/>
+	<item key="95398" text="杭州银行"/>
+	<item key="96592" text="杭州联合银行"/>
+	<item key="96528" text="宁波银行"/>
+	<item key="96699" text="温州银行"/>
+	<item key="96575" text="泰隆银行"/>
+</dic>

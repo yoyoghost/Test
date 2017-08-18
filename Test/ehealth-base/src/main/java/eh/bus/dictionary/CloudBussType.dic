@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="appoint" text="云门诊"/>
+	<item key="meet" text="云会诊"/>
+</dic>

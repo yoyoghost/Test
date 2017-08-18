@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="成员"/>
+	<item key="1" text="负责人"/>
+	<item key="2" text="管理员"/>
+</dic>

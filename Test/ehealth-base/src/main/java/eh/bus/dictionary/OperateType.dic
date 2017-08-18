@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="预约"/>
+	<item key="2" text="非远程门诊有号转诊"/>
+	<item key="3" text="门诊转诊接收"/>
+	<item key="4" text="住院转诊接收"/>
+	<item key="5" text="医技检查预约"/>
+</dic>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="01" text="预防保健">
+		<item key="0100" text="全部"/>
+	</item>
+	<item key="02" text="全科医学">
+		<item key="0200" text="全部"/>
+	</item>
+	<item key="03" text="内科">
+		<item key="0300" text="全部"/>
+		<item key="0301" text="呼吸内科"/>
+		<item key="0302" text="消化内科"/>
+		<item key="0303" text="神经内科"/>
+		<item key="0304" text="心血管内科"/>
+		<item key="0305" text="血液内科"/>
+		<item key="0306" text="肾病学专科"/>
+		<item key="0307" text="内分泌专科"/>
+		<item key="0308" text="免疫学专科"/>
+		<item key="0309" text="变态反应专科"/>
+		<item key="0310" text="老年病专科"/>
+	</item>
+	<item key="04" text="外科">
+		<item key="0400" text="全部"/>
+		<item key="0401" text="普通外科"/>
+		<item key="0402" text="神经外科"/>
+		<item key="0403" text="骨科"/>
+		<item key="0404" text="泌尿外科"/>
+		<item key="0405" text="胸外科专业"/>
+		<item key="0406" text="心脏大血管外科"/>
+		<item key="0407" text="烧伤外科"/>
+		<item key="0408" text="整形外科"/>
+	</item>
+	<item key="03A" text="神经科">
+		<item key="03A00" text="全部"/>
+	</item>
+	<item key="05" text="妇产科">
+		<item key="0500" text="全部"/>
+		<item key="0501" text="妇科"/>
+		<item key="0502" text="产科"/>
+		<item key="0503" text="计划生育"/>
+		<item key="0504" text="优生学专科"/>
+		<item key="0505" text="生殖健康与不孕症科"/>
+	</item>
+	<item key="06" text="妇女保健科">
+		<item key="0600" text="全部"/>
+		<item key="0601" text="青春期保健"/>
+		<item key="0602" text="围产期保健"/>
+		<item key="0603" text="更年期保健"/>
+		<item key="0604" text="妇女心理卫生科"/>
+		<item key="0605" text="妇女营养"/>
+	</item>
+	<item key="07" text="儿科">
+		<item key="0700" text="全部"/>
+		<item key="0701" text="新生儿科"/>
+		<item key="0702" text="小儿传染病科"/>
+		<item key="0703" text="小儿消化专科"/>
+		<item key="0704" text="小儿呼吸专科"/>
+		<item key="0705" text="小儿心脏病专科"/>
+		<item key="0706" text="小儿肾病专科"/>
+		<item key="0708" text="小儿神经病学专科"/>
+		<item key="0709" text="小儿内分泌专科"/>
+		<item key="0710" text="小儿遗传病专科"/>
+		<item key="0711" text="小儿免疫专科"/>
+	</item>
+	<item key="08" text="小儿外科">
+		<item key="0800" text="全部"/>
+		<item key="0801" text="小儿普通外科"/>
+		<item key="0802" text="小儿骨科"/>
+		<item key="0803" text="小儿泌尿外科"/>
+		<item key="0804" text="小儿胸心外科"/>
+		<item key="0805" text="小儿神经外科"/>
+	</item>
+	<item key="09" text="儿童保健科">
+		<item key="0900" text="全部"/>
+		<item key="0901" text="儿童生长发育"/>
+		<item key="0902" text="儿童营养"/>
+		<item key="0903" text="儿童心理卫生"/>
+		<item key="0904" text="儿童五官保健"/>
+		<item key="0905" text="儿童康复科"/>
+	</item>
+	<item key="10" text="眼科">
+		<item key="1000" text="全部"/>
+	</item>
+	<item key="11" text="耳鼻咽喉科">
+		<item key="1100" text="全部"/>
+		<item key="1101" text="耳科"/>
+		<item key="1102" text="鼻科"/>
+		<item key="1103" text="咽喉科"/>
+	</item>
+	<item key="12" text="口腔科">
+		<item key="1200" text="全部"/>
+		<item key="1201" text="牙体牙髓病科"/>
+		<item key="1202" text="牙周病科"/>
+		<item key="1203" text="口腔粘膜病科"/>
+		<item key="1204" text="儿童口腔科"/>
+		<item key="1205" text="口腔颌面外科"/>
+		<item key="1206" text="口腔修复科"/>
+		<item key="1207" text="口腔正畸科"/>
+		<item key="1208" text="口腔种植科"/>
+		<item key="1209" text="口腔麻醉科"/>
+		<item key="1210" text="口腔颌面医学影像科"/>
+		<item key="1211" text="口腔病理科"/>
+		<item key="1212" text="预防口腔科"/>
+	</item>
+	<item key="13" text="皮肤与性病科">
+		<item key="1300" text="全部"/>
+		<item key="1301" text="皮肤病科"/>
+		<item key="1302" text="性传播疾病科"/>
+	</item>
+	<item key="14" text="医疗美容科">
+		<item key="1400" text="全部"/>
+	</item>
+	<item key="15" text="精神卫生科">
+		<item key="1500" text="全部"/>
+		<item key="1501" text="精神病科"/>
+		<item key="1502" text="精神卫生科"/>
+		<item key="1503" text="药物依赖科"/>
+		<item key="1504" text="精神康复科"/>
+		<item key="1505" text="社区防治科"/>
+		<item key="1506" text="临床心理科"/>
+		<item key="1507" text="司法精神专业"/>
+	</item>
+	<item key="16" text="传染科">
+		<item key="1600" text="全部"/>
+		<item key="1601" text="肠道传染病专业"/>
+		<item key="1602" text="呼吸道传染病专业"/>
+		<item key="1603" text="肝炎专业"/>
+		<item key="1604" text="虫媒传染病专业"/>
+		<item key="1605" text="动物源性传染病专业"/>
+		<item key="1606" text="蠕虫病专业"/>
+	</item>
+	<item key="17" text="结核病科">
+		<item key="1700" text="全部"/>
+	</item>
+	<item key="19" text="肿瘤科">
+		<item key="1900" text="全部"/>
+	</item>
+	<item key="20" text="急诊医学科">
+		<item key="2000" text="全部"/>
+	</item>
+	<item key="21" text="康复医学科">
+		<item key="2100" text="全部"/>
+	</item>
+	<item key="26" text="麻醉科">
+		<item key="2600" text="全部"/>
+	</item>
+	<item key="27" text="疼痛科">
+		<item key="2700" text="全部"/>
+	</item>
+	<item key="28" text="重症医学科">
+		<item key="2800" text="全部"/>
+	</item>
+	<item key="31" text="病理科">
+		<item key="3100" text="全部"/>
+	</item>
+	<item key="32" text="医学影像科">
+		<item key="3200" text="全部"/>
+		<item key="3201" text="X线诊断专业"/>
+		<item key="3202" text="CT诊断专业"/>
+		<item key="3203" text="磁共振成像诊断专业"/>
+		<item key="3204" text="核医学专业"/>
+		<item key="3205" text="超声诊断专业"/>
+		<item key="3206" text="心电诊断专业"/>
+		<item key="3207" text="脑电及脑血流图诊断专业"/>
+		<item key="3208" text="神经肌肉电图专业"/>
+		<item key="3209" text="介入放射学专业"/>
+		<item key="3210" text="放射治疗专业"/>
+	</item>
+	<item key="50" text="中医科">
+		<item key="5000" text="全部"/>
+		<item key="5001" text="内科专业"/>
+		<item key="5002" text="外科专业"/>
+		<item key="5003" text="妇产科专业"/>
+		<item key="5004" text="儿科专业"/>
+		<item key="5005" text="皮肤科专业"/>
+		<item key="5006" text="眼科专业"/>
+		<item key="5007" text="耳鼻咽喉科"/>
+		<item key="5008" text="口腔科专业"/>
+		<item key="5009" text="肿瘤科专业"/>
+		<item key="5010" text="骨伤科专业"/>
+		<item key="5011" text="肛肠科专业"/>
+		<item key="5012" text="老年病科专业"/>
+		<item key="5013" text="针灸科专业"/>
+		<item key="5014" text="推拿科专业"/>
+		<item key="5015" text="康复医学专业"/>
+		<item key="5016" text="急诊科专业"/>
+		<item key="5017" text="预防保健科专业"/>
+	</item>
+	<item key="52" text="中西医结合科">
+		<item key="5200" text="全部"/>
+	</item>
+	<item key="53" text="感染管理科">
+		<item key="5300" text="全部"/>
+	</item>
+	<item key="71" text="营养科">
+		<item key="7100" text="全部"/>
+	</item>
+	<item key="72" text="护理科">
+		<item key="7200" text="全部"/>
+	</item>
+	<item key="73" text="医技科">
+		<item key="7300" text="全部"/>
+	</item>
+	<item key="98" text="其他">
+		<item key="9800" text="全部"/>
+	</item>
+</dic>
+	
+	
+	

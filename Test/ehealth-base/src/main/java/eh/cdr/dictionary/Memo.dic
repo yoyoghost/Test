@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="ac" text="饭前"/>
+	<item key="pc" text="饭后"/>
+	<item key="am" text="上午"/>
+	<item key="pm" text="下午"/>
+	<item key="om" text="每晨"/>
+	<item key="on" text="每晚"/>
+	<item key="hs" text="睡前"/>
+	<item key="st" text="立即"/>
+	<item key="sos" text="需要时"/>
+	<item key="prn" text="必要时"/>
+</dic>

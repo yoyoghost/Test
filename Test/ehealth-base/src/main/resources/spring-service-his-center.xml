@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<s:beans xmlns:s="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ngarihealth.com/schema/ssdev"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.ngarihealth.com/schema/ssdev
+						http://www.ngarihealth.com/schema/ssdev/ssdev.xsd">
+
+    <reference interface="com.ngari.his.appoint.service.IAppointHisService" id="his.iAppointHisService" />
+    <reference interface="com.ngari.his.cdr.service.ICDRHisService" id="his.iCDRHisService" />
+    <reference interface="com.ngari.his.check.service.ICheckHisService" id="his.iCheckHisService" />
+    <reference interface="com.ngari.his.image.service.IImageHisService" id="his.iImageHisService" />
+    <reference interface="com.ngari.his.patient.service.IPatientHisService" id="his.iPatientHisService" />
+    <reference interface="com.ngari.his.recipe.service.IRecipeHisService" id="his.iRecipeHisService" />
+    <reference interface="com.ngari.his.sign.service.ISignHisService" id="his.iSignHisService" />
+
+    <reference interface="com.ngari.base.serviceconfig.service.IHisServiceConfigService" id="his.hisServiceConfig" />
+    <reference interface="com.ngari.base.serviceconfig.service.IRpcServiceInfoService" id="his.rpcServiceInfoService" />
+
+
+</s:beans>

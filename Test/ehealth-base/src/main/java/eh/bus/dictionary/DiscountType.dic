@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="无优惠"/>
+	<item key="1" text="签约优惠"/>
+	<item key="2" text="优惠减免"/>
+</dic>

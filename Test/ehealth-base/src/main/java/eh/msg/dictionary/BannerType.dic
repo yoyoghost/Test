@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="载入页" target="organ"/>
+	<item key="1" text="APPBanner" target="organ"/>
+	<item key="3" text="微信Banner" target="wechat"/>
+	<item key="4" text="PCBanner" target="organ"/>
+	<item key="5" text="在线续方Banner" target="wechat"/>
+	<item key="6" text="支付宝服务窗Banner" target="alipay"/>
+	<item key="7" text="第三方Banner" target="thirdarty"/>
+	<item key="8" text="急诊Banner" target="organ"/>
+	<item key="9" text="随访首页Banner" target="organ"/>
+</dic>

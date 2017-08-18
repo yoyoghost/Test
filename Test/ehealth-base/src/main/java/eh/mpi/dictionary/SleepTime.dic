@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="&lt;6小时"/>
+	<item key="2" text="6-10小时"/>
+	<item key="3" text="10小时以上"/>
+	<item key="4" text="不详"/>
+</dic>

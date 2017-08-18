@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="医院，诊所/诊室"/>
+	<item key="2" text="药店/药房"/>
+	<item key="3" text="检查检验机构"/>
+	<item key="4" text="治疗护理机构"/>
+	<item key="5" text="健康管理服务机构"/>
+	<item key="9" text="管理机构"/>
+</dic>

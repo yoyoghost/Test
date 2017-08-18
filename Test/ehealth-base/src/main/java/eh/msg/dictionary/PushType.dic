@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic name="推送类型">
+    <item key="sysmsg" text="系统消息"/>
+    <item key="alidayu" text="阿里大于"/>
+    <item key="xinge" text="信鸽"/>
+    <item key="wechat" text="微信"/>
+    <item key="alisvr" text="支付宝服务窗"/>
+</dic>

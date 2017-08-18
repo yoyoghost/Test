@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="不需绑定(身份证查询)"/>
+	<item key="1" text="就诊卡"/>
+	<item key="2" text="就诊卡、医保卡"/>
+</dic>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="视力残疾"/>
+	<item key="2" text="听力残疾"/>
+    <item key="3" text="言语残疾"/>
+	<item key="4" text="肢体残疾"/>
+	<item key="5" text="智力残疾"/>
+    <item key="6" text="精神残疾"/>
+    <item key="7" text="其他残疾"/>
+    <item key="8" text="无残疾"/>
+</dic>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="转诊"/>
+	<item key="2" text="会诊"/>
+	<item key="3" text="咨询"/>
+	<item key="4" text="预约"/>
+	<item key="5" text="推荐奖励"/>
+	<item key="6" text="业务设置"/>
+	<item key="7" text="检查"/>
+	<item key="8" text="处方"/>
+	<item key="11" text="签约"/>
+	<item key="12" text="患者关注医生"/>
+	<item key="13" text="群发记录"/>
+	<item key="14" text="云门诊小结"/>
+	<item key="15" text="随访"/>
+	<item key="16" text="群聊"/>
+	<item key="20" text="急诊患者拨打"/>
+	<item key="21" text="急诊社区医生拨打患者"/>
+	<item key="22" text="急诊社区医生拨打医院医生"/>
+	<item key="23" text="急诊医院医生拨打患者"/>
+</dic>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="A型"/>
+	<item key="1" text="B型"/>
+	<item key="2" text="AB型"/>
+	<item key="3" text="O型"/>
+    <item key="4" text="未知"/>
+</dic>

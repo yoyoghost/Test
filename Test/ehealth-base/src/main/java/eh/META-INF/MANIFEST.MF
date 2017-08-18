@@ -1,0 +1,69 @@
+Manifest-Version: 1.0
+Class-Path: freemarker-2.3.23.jar snappy-java-1.1.1-M3.jar lucene-core
+ -5.5.0.jar guava-18.0.jar ssdev-broadcast-3.2.8.RELEASE.jar javax.ws.
+ rs-api-2.0.1.jar joda-time-2.4.jar securesm-1.0.jar jackson-jaxrs-bas
+ e-2.3.2.jar jersey-common-2.15.jar commons-lang3-3.3.2.jar easy-pay-e
+ ntity-0.2.2-20170719.073146-10.jar spring-tx-4.2.6.RELEASE.jar jersey
+ -guava-2.15.jar jackson-core-2.6.6.jar lucene-join-5.5.0.jar commons-
+ fileupload-1.3.1.jar netty-3.10.5.Final.jar ssdev-broadcast-support-3
+ .2.8.RELEASE.jar jfreechart-1.0.19.jar elasticsearch-2.3.3.jar spring
+ -web-4.2.6.RELEASE.jar spring-orm-4.2.6.RELEASE.jar jsr305-2.0.2.jar 
+ zookeeper-3.4.7.jar spring-expression-4.2.6.RELEASE.jar commons-pool-
+ 1.6.jar httpmime-4.4.1.jar spring-beans-4.2.6.RELEASE.jar commons-poo
+ l2-2.4.2.jar lucene-backward-codecs-5.5.0.jar curator-client-2.9.1.ja
+ r xingge-1.0.jar slf4j-api-1.7.5.jar lucene-grouping-5.5.0.jar spring
+ -data-commons-1.12.2.RELEASE.jar commons-lang-2.5.jar quartz-2.2.3.ja
+ r jackson-dataformat-smile-2.6.6.jar mimepull-1.9.3.jar rocketmq-comm
+ on-4.0.0-incubating.jar taobao-sdk-1.0.jar hibernate-commons-annotati
+ ons-5.0.0.Final.jar lucene-misc-5.5.0.jar lucene-highlighter-5.5.0.ja
+ r commons-cli-1.3.1.jar jersey-media-multipart-2.15.jar jackson-annot
+ ations-2.6.0.jar oss-support-1.3.1-20170426.044628-1.jar lucene-memor
+ y-5.5.0.jar jcl-over-slf4j-1.7.21.jar commons-io-2.4.jar lucene-query
+ parser-5.5.0.jar activation-1.1.jar spring-oxm-4.2.6.RELEASE.jar ehea
+ lth-his-api-0.1-20170731.121245-44.jar poi-3.15.jar aopalliance-repac
+ kaged-2.4.0-b06.jar spring-data-redis-1.7.2.RELEASE.jar fluent-hc-4.3
+ .5.jar jackson-dataformat-yaml-2.6.6.jar spring-core-4.2.6.RELEASE.ja
+ r ssdev-rpc-3.2.8.RELEASE.jar commons-math3-3.2.jar jackson-module-ja
+ xb-annotations-2.3.2.jar jave-1.0.3.jar jackson-jaxrs-json-provider-2
+ .3.2.jar jconsole.jar commons-beanutils-1.9.2.jar mail-1.4.7.jar jbos
+ s-logging-3.3.0.Final.jar xmlbeans-2.6.0.jar ezmorph-1.0.6.jar spring
+ -aop-4.2.6.RELEASE.jar commons-collections4-4.1.jar curvesapi-1.04.ja
+ r hessian-4.0.38-fixed.jar geronimo-jta_1.1_spec-1.1.1.jar javax.wsdl
+ -1.5.1.jar log4j-1.2.16.jar jpinyin-1.0.jar httpcore-4.4.1.jar ehealt
+ h-web-init-0.0.1-RELEASE.jar spring-webmvc-4.2.6.RELEASE.jar jandex-2
+ .0.0.CR1.jar c3p0-0.9.1.1.jar hibernate-core-5.0.3.Final.jar commons-
+ codec-1.10.jar t-digest-3.0.jar javassist-3.20.0-GA.jar osgi-resource
+ -locator-1.0.1.jar ssdev-es-1.1.0-20170706.065933-2.jar json-lib-2.4-
+ jdk15.jar ssdev-mvc-3.2.8.RELEASE.jar lucene-suggest-5.5.0.jar ssdev-
+ alilife-1.4.1.RELEASE.jar javax.xml.rpc-api-1.1.1.jar org.apache.axis
+ -1.4.LIFERAY-PATCHED-2.jar lucene-queries-5.5.0.jar ssdev-spring-3.2.
+ 8.RELEASE.jar druid-1.0.15.jar xpp3-1.1.4c.jar lucene-analyzers-commo
+ n-5.5.0.jar thymeleaf-2.1.1.RELEASE.jar wxpay-scanpay-java-sdk-1.1.ja
+ r netty-all-4.0.34.Final.jar xercesImpl-2.9.1.jar tools.jar alipay-sd
+ k-20170307.jar asm-3.3.1.jar rocketmq-remoting-4.0.0-incubating.jar s
+ pring-data-keyvalue-1.1.2.RELEASE.jar spring-context-support-4.2.6.RE
+ LEASE.jar hk2-locator-2.4.0-b06.jar commons-logging-1.0.3.jar hk2-uti
+ ls-2.4.0-b06.jar lucene-spatial-5.5.0.jar httpclient-cache-4.4.1.jar 
+ poi-ooxml-schemas-3.15.jar jersey-media-json-jackson-2.15.jar dozer-5
+ .5.1.jar dom4j-1.6.1.jar rocketmq-client-4.0.0-incubating.jar bcprov-
+ jdk16-1.46.jar HdrHistogram-2.1.6.jar ssdev-core-3.2.8.RELEASE.jar al
+ iyun-sdk-oss-2.6.0.jar hppc-0.7.1.jar jackson-dataformat-cbor-2.6.6.j
+ ar antlr-2.7.7.jar orika-core-1.4.1.jar joda-convert-1.2.jar jsr166e-
+ 1.1.0.jar thumbnailator-0.4.8.jar ognl-3.0.6.jar ssdev-weixin-1.4.1.R
+ ELEASE.jar jackson-databind-2.6.3.jar spring-jdbc-4.2.6.RELEASE.jar f
+ astjson-1.2.29.jar cglib-2.2.2.jar jxl-2.6.jar curator-recipes-2.9.1.
+ jar commons-collections-3.2.1.jar jline-0.9.94.jar commons-discovery-
+ 0.2.jar jcommon-1.0.23.jar curator-framework-2.9.1.jar jaxen-1.1.6.ja
+ r javax.inject-2.4.0-b06.jar ssdev-mixins-3.2.8.RELEASE.jar httpclien
+ t-4.4.1.jar spring-context-4.2.6.RELEASE.jar commons-compress-1.8.1.j
+ ar ons-client-1.2.6.jar hk2-api-2.4.0-b06.jar poi-ooxml-3.15.jar jdom
+ -1.1.jar slf4j-log4j12-1.7.5.jar xmlpull-1.1.3.1.jar aopalliance-1.0.
+ jar emchat-ehealth-0.0.1.jar stax-api-1.0.1.jar guava-retrying-2.0.0.
+ jar jersey-client-2.15.jar ssdev-dao-3.2.8.RELEASE.jar snakeyaml-1.15
+ .jar aspectjweaver-1.8.10.jar spatial4j-0.5.jar compress-lzf-1.0.2.ja
+ r UserAgentUtils-1.18.jar xml-apis-1.0.b2.jar lucene-spatial3d-5.5.0.
+ jar jedis-2.8.1.jar javax.annotation-api-1.2.jar hibernate-jpa-2.1-ap
+ i-1.0.0.Final.jar mvel2-2.2.2.Final.jar mysql-connector-java-5.1.36.j
+ ar ssdev-utils-3.2.8.RELEASE.jar lucene-sandbox-5.5.0.jar
+Main-Class: 
+

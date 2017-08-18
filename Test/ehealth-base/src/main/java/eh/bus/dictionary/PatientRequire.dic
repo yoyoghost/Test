@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="1天内"/>
+	<item key="2" text="2天内"/>
+	<item key="3" text="3天内"/>
+	<item key="7" text="一周内"/>
+	<item key="14" text="二周内"/>
+	<item key="-1" text="补录转诊"/>
+</dic>

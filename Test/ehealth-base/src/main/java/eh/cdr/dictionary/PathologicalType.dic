@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="糖尿病"/>
+	<item key="2" text="心脏病"/>
+	<item key="3" text="高血压"/>
+	<item key="4" text="皮肤病"/>
+	<item key="5" text="呼吸道疾病"/>
+	<item key="6" text="风湿病"/>
+	<item key="7" text="妇科病"/>
+	<item key="8" text="胃肠病"/>
+</dic>

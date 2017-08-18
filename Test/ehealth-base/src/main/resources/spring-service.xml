@@ -1,0 +1,1312 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<s:beans xmlns:s="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ngarihealth.com/schema/ssdev"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.ngarihealth.com/schema/ssdev
+						http://www.ngarihealth.com/schema/ssdev/ssdev.xsd">
+
+    <component-scan
+            base-package="eh.cdr.dao,eh.cdr.service,eh.bus.dao,eh.bus.service,eh.msg.service,eh.msg.dao,eh.base.dao,eh.base.service,eh.unifiedpay.service,elastic.factory,eh.wxpay.bus.*,eh.autodiagnosis"/>
+    <!-- easypay service -->
+    <reference interface="eh.remote.IEasyPayServiceInterface" id="easypay.payService"/>
+    <service ref="paramLoader"/>
+    <dao id="parameterDAO" class="eh.utils.params.support.db.ParameterDAO"/>
+    <service ref="thirdPartyProvider"/>
+    <service id="clientProvider" class="eh.base.service.DeviceProvider"/>
+    <reference id="eh.wxAppLoader" interface="ctd.mvc.weixin.service.WXAppLoader"/>
+    <!-- e宝签名服务 -->
+    <reference interface="eh.remote.IESignService" id="esign.esignService">
+    </reference>
+    <!--微信服务 -->
+    <reference interface="eh.remote.IWXServiceInterface" id="eh.wxService"/>
+    <reference interface="eh.remote.IAliServiceInterface" id="eh.aliPushMessService"/>
+    <service class="eh.remote.WXConsultStoreLoader" id="wxConsultService"/>
+    <reference interface="eh.remote.IWXPMServiceInterface" id="eh.wxPushMessService"/>
+    <reference interface="eh.remote.IWXMenuServiceInterface" id="eh.wxMenuService"/>
+    <!-- 信令服务 -->
+    <reference id="rtm.rtmService" interface="eh.remote.IRTMService"/>
+
+    <dao id="thirdPartyDao" class="ctd.persistence.support.impl.thirdparty.ThirdPartyDao"/>
+    <dao id="thirdPartyMappingDao" class="ctd.persistence.support.impl.thirdparty.ThirdPartyMappingDao"/>
+    <dao id="thirdPartyPropsDao" class="ctd.persistence.support.impl.thirdparty.ThirdPartyPropsDao"/>
+    <dao id="accessTokenDAO" class="ctd.persistence.support.impl.access.AccessTokenDAO"/>
+    <dao id="userRoleTokenDAO" class="ctd.persistence.support.impl.user.UserRoleTokenDAO"/>
+    <dao id="userDAO" class="ctd.persistence.support.impl.user.UserDAO"/>
+    <dao id="roleDAO" class="ctd.persistence.support.impl.role.RoleDAO"/>
+    <dao-write id="doctorWriteDAO" class="eh.base.dao.DoctorWriteDAO"/>
+    <!--医生基础信息-->
+    <dao id="doctorDAO" class="eh.base.dao.DoctorDAO">
+        <property name="writeDAO" ref="doctorWriteDAO"/>
+    </dao>
+    <service id="doctor" ref="doctorDAO"/>
+
+    <dao id="doctorStatisticDAO" class="eh.base.dao.DoctorStatisticDAO">
+    </dao>
+    <service id="doctorStatisticService" class="eh.base.service.doctor.DoctorStatisticService"/>
+
+    <dao id="organDAO" class="eh.base.dao.OrganDAO"/>
+    <service id="organ" ref="organDAO"/>
+    <dao-write id="employmentWriteDAO" class="eh.base.dao.EmploymentWriteDAO"/>
+    <dao id="employmentDAO" class="eh.base.dao.EmploymentDAO">
+        <property name="writeDAO" ref="employmentWriteDAO"/>
+    </dao>
+    <service id="employment" ref="employmentDAO">
+    </service>
+    <service id="user" ref="userDAO"></service>
+    <dao id="relationPatientDAO" class="eh.base.dao.RelationPatientDAO"/>
+    <service id="relationPatient" ref="relationPatientDAO"></service>
+
+    <!-- lf -->
+    <service id="rtmService" class="eh.bus.service.video.RTMService"/>
+
+    <service id="updateDoctorService" class="eh.base.service.doctor.UpdateDoctorService"/>
+
+    <service id="videoPushService" class="eh.bus.service.video.VideoPushService"/>
+
+    <service id="meetClinicPushService" class="eh.bus.service.meetclinic.MeetClinicPushService"/>
+
+    <service id="appointRecordService" class="eh.bus.service.appointrecord.AppointRecordService"/>
+
+    <dao id="videoMessageDAO" class="eh.bus.dao.VideoMessageDAO"/>
+    <service id="videoMessage" ref="videoMessageDAO"/>
+
+    <service id="videoServiceUnlogin" class="eh.bus.service.video.VideoServiceUnlogin">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <service id="queryMeetVideoService" class="eh.bus.service.meetclinic.QueryMeetVideoService"/>
+
+    <dao id="videoCallUserDAO" class="eh.base.dao.VideoCallUserDAO"/>
+    <service id="videoCallUser" ref="videoCallUserDAO"/>
+
+    <dao id="searchContentDAO" class="eh.bus.dao.SearchContentDAO"/>
+    <service id="searchContent" ref="searchContentDAO"/>
+
+    <dao id="professionDAO" class="eh.base.dao.ProfessionDAO"/>
+    <service id="profession" ref="professionDAO"/>
+
+    <dao id="cloudClinicQueueDAO" class="eh.bus.dao.CloudClinicQueueDAO"/>
+    <service id="cloudClinicQueue" ref="cloudClinicQueueDAO"/>
+
+    <service id="queryOrganService" class="eh.base.service.organ.QueryOrganService"/>
+
+    <service id="queryHealthCardService" class="eh.mpi.service.healthcard.QueryHealthCardService"/>
+
+    <service id="requestTransferService" class="eh.bus.service.transfer.RequestTransferService"/>
+
+    <service id="requestAppointService" class="eh.bus.service.appointrecord.RequestAppointService"/>
+
+    <service id="queryDoctorListService" class="eh.base.service.doctor.QueryDoctorListService"/>
+
+    <service id="queryEmploymentService" class="eh.base.service.employment.QueryEmploymentService"/>
+
+    <service id="familyMemberService" class="eh.mpi.service.FamilyMemberService"/>
+
+    <service id="meetClinicResultService" class="eh.bus.service.meetclinic.MeetClinicResultService"/>
+
+    <service id="patientService" class="eh.mpi.service.PatientService"/>
+
+    <dao id="patientTypeDAO" class="eh.mpi.dao.PatientTypeDAO"/>
+    <service id="patientType" ref="patientTypeDAO"/>
+
+    <service id="comLanService" class="eh.msg.service.ComLanService"/>
+
+    <dao id="consultMessageDao" class="eh.bus.dao.ConsultMessageDAO"/>
+    <service id="consultMessageService" class="eh.bus.service.consult.ConsultMessageService"/>
+
+    <dao id="meetClinicMessageDao" class="eh.bus.dao.MeetClinicMessageDAO"/>
+    <service id="meetClinicMessageService" class="eh.bus.service.meetclinic.MeetClinicMessageService"/>
+
+    <dao id="wxTemplateDao" class="eh.bus.dao.WxTemplateDAO"/>
+    <service id="wxTemplate" ref="wxTemplateDao"/>
+
+    <dao id="aliTemplateDao" class="eh.bus.dao.AliTemplateDAO" serviceId="aliTemplate"/>
+
+    <service id="callNumberService" class="eh.bus.service.seeadoctor.CallNumberService"/>
+
+    <service id="seeADoctorService" class="eh.bus.service.seeadoctor.SeeADoctorService"/>
+
+    <dao id="comLanDAO" class="eh.msg.dao.ComLanDAO"/>
+    <service id="comLan" ref="comLanDAO"/>
+
+    <service id="departmentService" class="eh.base.service.DepartmentService"/>
+
+    <dao id="meetClinicResultDAO" class="eh.bus.dao.MeetClinicResultDAO"/>
+    <service id="meetClinicResult" ref="meetClinicResultDAO"/>
+
+    <dao id="enterpriseAddressDAO" class="eh.cdr.dao.EnterpriseAddressDAO"/>
+    <service id="enterpriseAddressService" class="eh.cdr.service.EnterpriseAddressService"/>
+
+    <dao id="saleDrugListDAO" class="eh.base.dao.SaleDrugListDAO"/>
+    <service id="saleDrugList" ref="saleDrugListDAO"/>
+
+    <service id="saleDrugListService" class="eh.base.service.SaleDrugListService"/>
+
+    <dao id="organDrugListDAO" class="eh.base.dao.OrganDrugListDAO"/>
+    <service id="organDrugList" ref="organDrugListDAO"/>
+
+    <service id="organDrugListService" class="eh.base.service.OrganDrugListService"/>
+
+    <dao id="drugProducerDAO" class="eh.base.dao.DrugProducerDAO"/>
+
+    <dao id="drugAliasDAO" class="eh.base.dao.DrugAliasDAO"/>
+    <service id="drugAlias" ref="drugAliasDAO"/>
+
+    <dao id="drugListDAO" class="eh.base.dao.DrugListDAO"/>
+    <service id="drugList" ref="drugListDAO"/>
+
+    <service id="drugListService" class="eh.base.service.DrugListService"/>
+
+    <dao id="userRolesDAO" class="eh.base.dao.UserRolesDAO"/>
+    <service id="userRoles" ref="userRolesDAO">
+    </service>
+
+    <dao id="appointScheduleDAO" class="eh.bus.dao.AppointScheduleDAO"/>
+    <service id="appointSchedule" ref="appointScheduleDAO">
+    </service>
+
+    <dao id="relationLabelDAO" class="eh.base.dao.RelationLabelDAO"/>
+    <service id="relationLabel" ref="relationLabelDAO">
+    </service>
+
+    <dao id="recipeDAO" class="eh.cdr.dao.RecipeDAO"/>
+
+    <dao id="recipeOrderDAO" class="eh.cdr.dao.RecipeOrderDAO"/>
+
+    <dao id="pathologicalDrugDAO" class="eh.cdr.dao.PathologicalDrugDAO"/>
+
+    <service id="recipe" ref="recipeDAO">
+    </service>
+
+    <service id="recipeService" class="eh.cdr.service.RecipeService">
+    </service>
+
+    <service id="pathologicalDrugService" class="eh.cdr.service.PathologicalDrugService">
+    </service>
+
+    <service id="recipeListService" class="eh.cdr.service.RecipeListService">
+    </service>
+
+    <service id="recipeOrderService" class="eh.cdr.service.RecipeOrderService">
+    </service>
+
+    <service id="recipeSendHisService" class="eh.cdr.his.service.RecipeSendHisService">
+    </service>
+
+    <service id="recipeHisService" class="eh.cdr.service.RecipeHisService">
+    </service>
+
+    <service id="drugsEnterpriseService" class="eh.cdr.service.DrugsEnterpriseService">
+    </service>
+
+    <service id="takeDrugService" class="eh.cdr.drugsenterprise.ThirdEnterpriseCallService">
+    </service>
+
+    <service id="recipeHospitalService" class="eh.cdr.service.DockingHospitalService">
+    </service>
+
+    <service id="remoteDrugService" class="eh.cdr.drugsenterprise.RemoteDrugEnterpriseService">
+    </service>
+
+    <dao id="recipeCheckDAO" class="eh.cdr.dao.RecipeCheckDAO"/>
+    <dao id="recipeCheckDetailDAO" class="eh.cdr.dao.RecipeCheckDetailDAO"/>
+    <service id="recipeCheckService" class="eh.cdr.service.RecipeCheckService">
+    </service>
+
+    <!--测试用service 发布注释-->
+    <service id="recipeTestService" class="eh.cdr.service.RecipeTestService">
+    </service>
+
+    <dao id="recipeDetailDAO" class="eh.cdr.dao.RecipeDetailDAO"/>
+    <service id="recipeDetail" ref="recipeDetailDAO">
+    </service>
+
+    <dao id="recipeLogDAO" class="eh.cdr.dao.RecipeLogDAO"/>
+
+    <dao id="drugsEnterpriseDAO" class="eh.cdr.dao.DrugsEnterpriseDAO"/>
+
+    <dao id="organAndDrugsepRelationDAO" class="eh.cdr.dao.OrganAndDrugsepRelationDAO"/>
+    <service id="organAndDrugsepRelationService" class="eh.cdr.service.OrganAndDrugsepRelationService">
+    </service>
+
+    <dao id="adDAO" class="eh.msg.dao.AdDAO"/>
+    <service id="ad" ref="adDAO">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <service id="callback" class="eh.util.Callback">
+    </service>
+
+    <service id="callCancel" class="eh.util.CallCancel">
+    </service>
+
+    <service id="callResult" class="eh.util.CallResult">
+    </service>
+
+    <!--<service id="queryCallState" class="eh.util.QueryCallState">
+    </service>-->
+
+    <dao-write id="doctorAccountDetailWriteDAO" class="eh.base.dao.DoctorAccountDetailWriteDAO"/>
+    <dao id="doctorAccountDetailDAO" class="eh.base.dao.DoctorAccountDetailDAO">
+        <property name="writeDAO" ref="doctorAccountDetailWriteDAO"/>
+    </dao>
+    <service id="doctorAccountDetail" ref="doctorAccountDetailDAO">
+    </service>
+
+    <dao id="doctorAccountDAO" class="eh.base.dao.DoctorAccountDAO"/>
+    <service id="doctorAccount" ref="doctorAccountDAO">
+    </service>
+
+    <dao id="cdrOtherdocDAO" class="eh.cdr.dao.CdrOtherdocDAO"/>
+    <service id="cdrOtherdoc" ref="cdrOtherdocDAO">
+    </service>
+    <service id="otherdocService" class="eh.cdr.service.OtherdocService"/>
+
+    <dao id="unMeetClinicNumDAO" class="eh.bus.dao.UnMeetClinicNumDAO"/>
+    <service id="unMeetClinic" ref="unMeetClinicNumDAO">
+    </service>
+
+    <dao id="departmentDAO" class="eh.base.dao.DepartmentDAO"/>
+    <service id="department" ref="departmentDAO"/>
+
+    <dao id="meetClinicRecordDAO" class="eh.bus.dao.MeetClinicRecordDAO"/>
+    <service id="meetClinicRecord" ref="meetClinicRecordDAO">
+    </service>
+
+    <dao id="queryDoctorListDAO" class="eh.base.dao.QueryDoctorListDAO"/>
+    <service id="queryDoctorList" ref="queryDoctorListDAO">
+    </service>
+
+    <dao id="queryMeetClinicDAO" class="eh.bus.dao.QueryMeetClinicDAO"/>
+    <service id="queryMeetClinic" ref="queryMeetClinicDAO">
+    </service>
+
+    <dao id="queryMeetClinicHisDAO" class="eh.bus.dao.QueryMeetClinicHisDAO"/>
+    <service id="queryMeetClinicHis" ref="queryMeetClinicHisDAO">
+    </service>
+
+    <dao id="startMeetClinicDAO" class="eh.bus.dao.StartMeetClinicDAO"/>
+    <service id="startMeetClinic" ref="startMeetClinicDAO">
+    </service>
+
+    <dao id="meetClinicDAO" class="eh.bus.dao.MeetClinicDAO"/>
+    <service id="meetClinic" ref="meetClinicDAO">
+    </service>
+    <service id="meetClinicService" class="eh.bus.service.meetclinic.MeetClinicService"/>
+
+    <dao id="saveMeetReportDAO" class="eh.bus.dao.SaveMeetReportDAO"/>
+    <service id="saveMeetReport" ref="saveMeetReportDAO">
+    </service>
+
+    <dao id="endMeetClinicDAO" class="eh.bus.dao.EndMeetClinicDAO"/>
+    <service id="endMeetClinic" ref="endMeetClinicDAO">
+    </service>
+
+    <dao id="requestMeetClinicDAO" class="eh.bus.dao.RequestMeetClinicDAO"/>
+    <service id="requestMeetClinic" ref="requestMeetClinicDAO">
+    </service>
+
+    <dao id="cancelMeetClinicDAO" class="eh.bus.dao.CancelMeetClinicDAO"/>
+    <service id="cancelMeetClinic" ref="cancelMeetClinicDAO">
+    </service>
+
+    <dao id="doctorTempDAO" class="eh.base.dao.DoctorTempDAO"/>
+    <service id="doctorTemp" ref="doctorTempDAO">
+    </service>
+
+    <dao id="sessionMemberDAO" class="eh.msg.dao.SessionMemberDAO"/>
+    <service id="sessionMember" ref="sessionMemberDAO">
+    </service>
+
+    <dao id="sessionDetailDAO" class="eh.msg.dao.SessionDetailDAO"/>
+    <service id="sessionDetail" ref="sessionDetailDAO">
+    </service>
+
+    <dao id="sessionDAO" class="eh.msg.dao.SessionDAO"/>
+    <service id="session" ref="sessionDAO"/>
+
+    <dao id="publisherDAO" class="eh.msg.dao.PublisherDAO"/>
+    <service id="publisher" ref="publisherDAO"/>
+
+    <dao id="unitOpauthorizeDAO" class="eh.base.dao.UnitOpauthorizeDAO"/>
+    <service id="unitOpauthorize" ref="unitOpauthorizeDAO"/>
+
+    <dao id="transferDAO" class="eh.bus.dao.TransferDAO"/>
+    <service id="transfer" ref="transferDAO">
+    </service>
+    <dao id="appointSourceDAO" class="eh.bus.dao.AppointSourceDAO"/>
+    <service id="appointSource" ref="appointSourceDAO">
+    </service>
+    <service id="appointSourceService" class="eh.bus.service.AppointSourceService"/>
+
+    <service id="handlerCallRecord" class="eh.bus.service.CallRecordService"/>
+
+    <dao id="appointDepartDAO" class="eh.bus.dao.AppointDepartDAO"/>
+    <service id="appointDepart" ref="appointDepartDAO">
+    </service>
+
+    <dao id="departmentRelationDAO" class="eh.base.dao.DepartmentRelationDAO"/>
+    <service id="departmentRelation" ref="departmentRelationDAO"/>
+
+    <dao id="doctorGroupDAO" class="eh.base.dao.DoctorGroupDAO"/>
+    <service id="doctorGroup" ref="doctorGroupDAO"></service>
+
+    <dao id="consultDAO" class="eh.bus.dao.ConsultDAO"/>
+    <service id="consult" ref="consultDAO">
+    </service>
+
+    <dao id="questionnaireDAO" class="eh.bus.dao.QuestionnaireDAO"/>
+
+    <dao id="detectConfigInfoDAO" class="eh.bus.dao.DetectConfigInfoDAO"/>
+    <service id="detectConfigInfo" ref="detectConfigInfoDAO"/>
+
+    <!-- 咨询申请相关服务 -->
+    <service id="requestConsultService" class="eh.bus.service.consult.RequestConsultService"></service>
+    <!-- 咨询开始(咨询接收)相关服务 -->
+    <service id="startConsultService" class="eh.bus.service.consult.StartConsultService"></service>
+    <!-- 患者取消咨询相关服务 -->
+    <service id="patientCancelConsultService" class="eh.bus.service.consult.PatientCancelConsultService"></service>
+    <!-- 患者完成咨询相关服务 -->
+    <service id="patientFinishConsultService" class="eh.bus.service.consult.PatientFinishConsultService"></service>
+    <!-- 咨询拒绝相关服务 -->
+    <service id="refuseConsultService" class="eh.bus.service.consult.RefuseConsultService"></service>
+
+    <dao id="docIndexDAO" class="eh.cdr.dao.DocIndexDAO"/>
+    <service id="docIndex" ref="docIndexDAO"></service>
+
+    <dao id="clinicListDAO" class="eh.cdr.dao.ClinicListDAO"/>
+    <service id="clinicList" ref="clinicListDAO"></service>
+
+    <dao-write id="appointRecordWriteDAO" class="eh.bus.dao.AppointRecordWriteDAO"/>
+    <dao id="appointRecordDAO" class="eh.bus.dao.AppointRecordDAO">
+        <property name="writeDAO" ref="appointRecordWriteDAO"/>
+    </dao>
+    <service id="appointRecord" ref="appointRecordDAO"></service>
+
+    <dao-write id="consultSetWriteDAO" class="eh.bus.dao.ConsultSetWriteDAO"/>
+    <dao id="consultSetDAO" class="eh.bus.dao.ConsultSetDAO">
+        <property name="writeDAO" ref="consultSetWriteDAO"/>
+    </dao>
+    <service id="consultSet" ref="consultSetDAO"></service>
+    <service id="consultSetService" class="eh.bus.service.ConsultSetService"></service>
+
+    <dao id="familyMemberDAO" class="eh.mpi.dao.FamilyMemberDAO"/>
+    <service id="familyMember" ref="familyMemberDAO"></service>
+
+    <dao id="appointInhospDAO" class="eh.bus.dao.AppointInhospDAO"/>
+    <service id="appointInhosp" ref="appointInhospDAO">
+    </service>
+
+    <dao id="patientFeedbackDAO" class="eh.base.dao.PatientFeedbackDAO"/>
+    <service id="patientFeedback" ref="patientFeedbackDAO"></service>
+
+    <dao id="validateCodeDAO" class="eh.base.dao.ValidateCodeDAO"/>
+    <service id="validateCode" ref="validateCodeDAO">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <!--<dao id="mpiPatienttmpDAO" class="eh.base.dao.MpiPatienttmpDAO" />
+    <service id="mpiPatienttmp" ref="mpiPatienttmpDAO"></service>
+
+    <dao id="baseDoctorsrrshDAO" class="eh.base.dao.BaseDoctorsrrshDAO"/>
+    <service id="baseDoctorsrrsh" ref="baseDoctorsrrshDAO"></service>-->
+
+    <!-- 用户未登陆时调用的服务 -->
+    <service id="unLoginSevice" class="eh.bus.service.UnLoginSevice">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <service id="pinService" class="eh.base.service.PinService">
+    </service>
+
+    <service id="adminUserSevice" class="eh.base.user.AdminUserSevice">
+    </service>
+
+    <dao id="chemistDAO" class="eh.base.dao.ChemistDAO"/>
+    <service id="chemistService" class="eh.base.service.ChemistService">
+    </service>
+
+    <dao id="versionControlDAO" class="eh.base.dao.VersionControlDAO"/>
+    <service id="versionControl" ref="versionControlDAO"></service>
+
+    <dao id="versionControlExDAO" class="eh.base.dao.VersionControlExDAO"/>
+    <service id="versionControlEx" ref="versionControlExDAO"></service>
+
+    <dao id="versionControlServerLogDao" class="eh.base.dao.VersionControlServerLogDao"/>
+
+    <!-- 医生信息登记服务-->
+    <service id="registerDoctorSevice" class="eh.base.user.RegisterDoctorSevice">
+    </service>
+
+    <!-- 签约患者信息登记服务-->
+    <service id="registerSignPatientService" class="eh.base.user.RegisterSignPatientService">
+    </service>
+
+    <!-- 电子病历 -->
+    <dao id="labReportDAO" class="eh.cdr.dao.LabReportDAO"/>
+    <service id="labReport" ref="labReportDAO"></service>
+
+    <dao id="labReportDetailDAO" class="eh.cdr.dao.LabReportDetailDAO"/>
+    <service id="labReportDetail" ref="labReportDetailDAO"></service>
+
+    <dao id="labReportIdDAO" class="eh.bus.dao.LabReportIdDAO"/>
+    <service id="labReportId" ref="labReportIdDAO"></service>
+
+    <dao id="clinicEmrDAO" class="eh.cdr.dao.ClinicEmrDAO"/>
+    <service id="clinicEmr" ref="clinicEmrDAO"></service>
+
+    <dao id="clinicEmrDetailDAO" class="eh.cdr.dao.ClinicEmrDetailDAO"/>
+
+    <dao id="diagnosisDAO" class="eh.cdr.dao.DiagnosisDAO"/>
+    <service id="diagnosis" ref="diagnosisDAO"></service>
+
+    <!-- zx -->
+    <dao id="patientDAO" class="eh.mpi.dao.PatientDAO"/>
+    <service id="patient" ref="patientDAO"/>
+
+    <dao id="patientLastBehaviorDAO" class="eh.mpi.dao.PatientLastBehaviorDAO"/>
+
+    <dao id="healthCardDAO" class="eh.mpi.dao.HealthCardDAO"/>
+    <service id="healthCard" ref="healthCardDAO"/>
+
+    <dao id="sickHistoryDAO" class="eh.mpi.dao.SickHistoryDAO"/>
+    <service id="sickHistory" ref="sickHistoryDAO"/>
+    <dao id="lifeHabitDAO" class="eh.mpi.dao.LifeHabitDAO"/>
+    <service id="lifeHabit" ref="lifeHabitDAO"/>
+    <dao id="actionHabitDAO" class="eh.mpi.dao.ActionHabitDAO"/>
+    <service id="actionHabit" ref="actionHabitDAO"/>
+    <dao id="healthLogDAO" class="eh.mpi.dao.HealthLogDAO"/>
+    <service id="healthLog" ref="healthLogDAO"/>
+
+    <dao-write id="relationDoctorWriteDAO" class="eh.mpi.dao.RelationDoctorWriteDAO"/>
+    <dao id="relationDoctorDAO" class="eh.mpi.dao.RelationDoctorDAO">
+        <property name="writeDAO" ref="relationDoctorWriteDAO"/>
+    </dao>
+    <service id="relationDoctor" ref="relationDoctorDAO"/>
+
+    <dao id="healthSummaryDAO" class="eh.cdr.dao.HealthSummaryDAO"/>
+    <service id="healthSummary" ref="healthSummaryDAO"/>
+
+    <dao id="deviceDAO" class="eh.base.dao.DeviceDAO"/>
+    <service id="device" ref="deviceDAO"/>
+
+    <dao class="eh.base.dao.DictProfessionDAO" id="dictProfessionDAO"/>
+    <service id="dictProfession" ref="dictProfessionDAO"/>
+
+    <!-- 获取服务器时间 -->
+    <service id="serverDateService" class="eh.util.ServerDateService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <!-- 发送验证码 -->
+    <service id="smsValidateSevice" class="eh.msg.service.SmsValidateSevice">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <service id="userSevice" class="eh.base.user.UserSevice"/>
+
+
+    <!-- 重置密码 -->
+    <service id="changePwdService" class="eh.base.user.ChangePwdService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <!-- 机构医疗项目 -->
+    <dao id="organMedicalItemDAO" class="eh.base.dao.OrganMedicalItemDAO"/>
+    <service id="organMedicalItem" ref="organMedicalItemDAO"/>
+
+    <!--意见 -->
+    <dao id="adviceDAO" class="eh.bus.dao.AdviceDAO"/>
+    <service id="advice" ref="adviceDAO"/>
+
+    <!-- 创建群组 -->
+    <dao id="groupDAO" class="eh.msg.dao.GroupDAO"/>
+    <service id="group" ref="groupDAO"/>
+
+    <!--触发器 -->
+    <dao id="followPlanTriggerDAO" class="eh.mpi.dao.FollowPlanTriggerDAO"/>
+    <service id="followPlanTriggerService" class="eh.mpi.service.follow.FollowPlanTriggerService"/>
+
+    <!--触发器规则 -->
+    <dao id="FollowPlanTriggerRule" class="eh.mpi.dao.FollowPlanTriggerRuleDAO"/>
+
+    <!--随访 -->
+    <dao id="followPlanDAO" class="eh.mpi.dao.FollowPlanDAO"/>
+    <dao id="followScheduleDAO" class="eh.mpi.dao.FollowScheduleDAO"/>
+    <service id="followAddService" class="eh.mpi.service.follow.FollowAddService"/>
+    <service id="followUpdateService" class="eh.mpi.service.follow.FollowUpdateService"/>
+    <service id="followQueryService" class="eh.mpi.service.follow.FollowQueryService"/>
+
+    <!--会话随访-->
+    <dao id="followChatDAO" class="eh.mpi.dao.FollowChatDAO"/>
+    <dao id="followChatMsgDAO" class="eh.mpi.dao.FollowChatMsgDAO"/>
+    <service id="followChatService" class="eh.mpi.service.follow.FollowChatService"/>
+
+    <!--随访模板 -->
+    <dao id="followModuleDAO" class="eh.mpi.dao.FollowModuleDAO"/>
+    <dao id="followModulePlanDAO" class="eh.mpi.dao.FollowModulePlanDAO"/>
+    <service id="followModuleService" class="eh.mpi.service.follow.FollowModuleService"/>
+
+    <!-- 医生关注医生 -->
+    <dao id="doctorRelationDoctorDAO" class="eh.base.dao.DoctorRelationDoctorDAO"/>
+    <service id="doctorRelationDoctor" ref="doctorRelationDoctorDAO"/>
+
+    <!-- 环信消息 -->
+    <dao id="messageDAO" class="eh.msg.dao.MessageDAO"/>
+    <service id="message" ref="messageDAO"/>
+    <!-- 其他索引文档 -->
+    <dao id="otherdocDAO" class="eh.cdr.dao.OtherDocDAO"/>
+    <!--服务价格 -->
+    <dao id="serverPriceDAO" class="eh.base.dao.ServerPriceDAO"/>
+    <service id="serverPrice" ref="serverPriceDAO"/>
+    <!--his号源更新服务 -->
+    <service id="appointService" class="eh.bus.service.AppointService">
+        <property name="mvc_authentication">false</property>
+    </service>
+    <dao id="hisAppointRecordDAO" class="eh.bus.dao.HisAppointRecordDAO"/>
+    <service id="doctorService" class="eh.base.service.DoctorService">
+    </service>
+    <dao id="TempTableDAO" class="eh.bus.dao.TempTableDAO"/>
+    <service id="exportService" class="eh.bus.service.ExportService"/>
+    <!-- 拨号保存记录 -->
+    <dao id="callRecordDAO" class="eh.bus.dao.CallRecordDAO"/>
+    <service id="callRecordService" ref="callRecordDAO">
+    </service>
+
+    <dao id="pcConfigDAO" class="eh.base.dao.PcConfigDAO"/>
+    <service id="pcConfig" ref="pcConfigDAO"></service>
+
+    <!-- 事件数据保存服务 -->
+    <dao id="eventDataDAO" class="eh.bus.dao.EventDataDAO"/>
+    <service id="eventDataService" ref="eventDataDAO"/>
+    <!-- 短信保存记录 -->
+    <dao id="smsRecordDAO" class="eh.bus.dao.SmsRecordDAO"/>
+    <service id="smsRecord" ref="smsRecordDAO">
+        <property name="mvc_authentication">false</property>
+    </service>
+    <!-- 业务历史记录表 -->
+    <dao id="operationRecordsDAO" class="eh.bus.dao.OperationRecordsDAO"/>
+    <service id="operationRecords" ref="operationRecordsDAO"/>
+    <!--机构服务配置信息 -->
+    <dao id="serviceConfigDAO" class="eh.base.dao.HisServiceConfigDAO"/>
+    <service id="serviceConfig" ref="serviceConfigDAO"/>
+
+    <!-- 提现记录表 -->
+    <dao id="cashBillsDAO" class="eh.base.dao.CashBillsDAO"/>
+    <service id="cashBills" ref="cashBillsDAO"/>
+
+    <dao id="smsInfoDAO" class="eh.msg.dao.SmsInfoDAO"/>
+    <service id="smsInfo" ref="smsInfoDAO"></service>
+    <!-- <service id="smsCallbackService" class="eh.msg.service.SmsCallbackService"
+        /> -->
+    <reference interface="ctd.net.rpc.async.AsyncTaskRegistry"
+               id="sms.asyncTaskRegistry">
+    </reference>
+    <reference interface="eh.remote.IAlidayuSmsInterface"
+               id="sms.alidayuSms">
+    </reference>
+
+    <!-- 群发短信子表 -->
+    <dao id="massDAO" class="eh.msg.dao.MassDAO"/>
+    <service id="mass" ref="massDAO"/>
+
+    <!-- 群发短信主表 -->
+    <dao id="massRootDAO" class="eh.msg.dao.MassRootDAO"/>
+    <service id="massRoot" ref="massRootDAO"/>
+    <!-- 登录信息 -->
+    <dao id="logonLogDAO" class="eh.base.dao.LogonLogDAO"/>
+    <service id="logonLog" ref="logonLogDAO"/>
+    <!-- 报告文档索引注册接口 -->
+    <service id="regReportInfoService" class="eh.bus.service.RegReportInfoService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <!-- 支付宝获取科室列表 -->
+    <dao id="appointDepartClassDAO" class="eh.bus.dao.AppointDepartClassDAO"/>
+    <service id="appointDepartClass" ref="appointDepartClassDAO">
+    </service>
+    <!-- 支付宝用服务入口 -->
+    <service id="alipayService" class="eh.bus.service.AlipayService">
+        <property name="mvc_authentication">false</property>
+    </service>
+    <!-- 查询病人信息 -->
+    <dao id="regPatientInfoDAO" class="eh.bus.dao.RegPatientInfoDAO"/>
+    <service id="regPatientInfo" ref="regPatientInfoDAO"/>
+
+    <!--群组发短消息 -->
+    <dao id="smsGroupDAO" class="eh.msg.dao.SmsGroupDAO"/>
+    <service id="smsGroup" ref="smsGroupDAO"/>
+
+    <!-- 号源生成规则 -->
+    <dao id="sourceAllotDAO" class="eh.bus.dao.SourceAllotDAO"/>
+    <service id="sourceAllot" ref="sourceAllotDAO"/>
+
+    <!-- 临时排班 -->
+    <dao id="tempScheduleDAO" class="eh.bus.dao.TempScheduleDAO"/>
+    <service id="tempSchedule" ref="tempScheduleDAO"/>
+
+    <!-- 收货地址 -->
+    <dao id="addressDAO" class="eh.mpi.dao.AddressDAO"/>
+    <service id="address" ref="addressDAO"/>
+
+    <!--登录介质表 -->
+    <dao id="userMappingDAO" class="eh.base.dao.UserMappingDAO"/>
+    <service id="userMapping" ref="userMappingDAO"/>
+
+    <!-- 疾病编码表 -->
+    <dao id="diseasDAO" class="eh.base.dao.DiseasDAO"/>
+    <service id="diseas" ref="diseasDAO"/>
+
+    <!--diseasService -->
+    <service id="diseasService" class="eh.base.service.DiseasService">
+    </service>
+    <!-- 医院网络状态 -->
+    <dao id="organnetstatusDAO" class="eh.bus.dao.OrganNetstatusDAO"/>
+    <service id="organnetstatus" ref="organnetstatusDAO"/>
+    <!-- 医院网络管理员 -->
+    <dao id="organNetManagerDAO" class="eh.bus.dao.OrganNetManagerDAO"/>
+    <service id="organNetManager" ref="organNetManagerDAO"/>
+
+    <!-- 机构状态 -->
+    <dao id="organNetstatusDAO" class="eh.bus.dao.OrganNetstatusDAO"/>
+    <service id="organNetstatus" ref="organNetstatusDAO"/>
+
+    <!-- 在线云门诊状态 -->
+    <dao id="cloudClinicSetDAO" class="eh.bus.dao.CloudClinicSetDAO"/>
+    <service id="cloudClinicSet" ref="cloudClinicSetDAO"/>
+    <service id="cloudClinicSetService" class="eh.bus.service.CloudClinicSetService"/>
+
+    <!-- 设置推荐开通记录 -->
+    <dao id="recommendDAO" class="eh.mpi.dao.RecommendDAO"/>
+    <service id="recommend" ref="recommendDAO"/>
+    <service id="recommendService" class="eh.mpi.service.RecommendService"/>
+
+    <dao id="oAuthWeixinMPDAO" class="ctd.mvc.weixin.entity.OAuthWeixinMPDAO" serviceId="oAuthWeixinMPService"/>
+    <service id="weixinMPService" class="eh.wxpay.service.WeixinMPService"/>
+
+    <service id="wxUserService" class="eh.base.user.WXUserService">
+        <property name="mvc_authentication" value="false"/>
+    </service>
+
+    <!-- 报告列表 直接从his取数据-->
+    <service id="queryLabReportsService" class="eh.bus.service.report.QueryLabReportsService"/>
+    <!-- 报告详细信息 直接从his取数据-->
+    <service id="queryLabReportsDetailService" class="eh.bus.service.report.QueryLabReportsDetailService">
+        <property name="mvc_authentication">false</property>
+    </service>
+    <!-- 报告详情引导查询服务 -->
+    <dao id="reportsGuideControlDAO" class="eh.bus.dao.ReportsGuideControlDAO"/>
+    <service id="reportGuideControlService" ref="reportsGuideControlDAO"/>
+
+    <!-- 微信支付请求服务 -->
+    <service id="wxPayService" class="eh.wxpay.service.WxPayService">
+        <property name="mvc_authentication">false</property>
+    </service>
+    <!--<service id="wxRefundService" class="eh.wxpay.service.WxRefundService">
+        <property name="mvc_authentication">false</property>
+    </service>-->
+    <dao id="wxConfigDAO" class="eh.base.dao.WxConfigDAO"/>
+    <service class="eh.wxpay.service.WxApiService" id="wxApiService"></service>
+    <service id="wxImageDownService" class="eh.wxpay.service.WxImageDownService"></service>
+
+    <!-- 医技检查 -->
+    <!-- <dao id="checkReqMsgDAO" class="eh.bus.dao.CheckReqMsg" />-->
+    <service id="checkReqMsg" class="eh.bus.dao.CheckReqMsg">
+    </service>
+
+    <dao id="checkAppointItemDAO" class="eh.bus.dao.CheckAppointItemDAO"/>
+    <service id="checkAppointItem" ref="checkAppointItemDAO">
+    </service>
+
+    <dao id="organCheckItemDAO" class="eh.base.dao.OrganCheckItemDAO"/>
+    <service id="organCheckItem" ref="organCheckItemDAO">
+    </service>
+
+    <dao id="checkItemDAO" class="eh.base.dao.CheckItemDAO"/>
+    <service id="checkItem" ref="checkItemDAO">
+    </service>
+    <dao id="checkRequestDAO" class="eh.bus.dao.CheckRequestDAO"/>
+    <service id="checkRequest" ref="checkRequestDAO">
+    </service>
+
+    <dao id="checkSourceDAO" class="eh.bus.dao.CheckSourceDAO"/>
+    <service id="checkSource" ref="checkSourceDAO">
+    </service>
+
+    <dao id="checkScheduleDAO" class="eh.bus.dao.CheckScheduleDAO"/>
+    <service id="checkSchedule" ref="checkScheduleDAO">
+    </service>
+
+    <!-- 医技检查停班停诊服务-->
+    <service id="checkService" class="eh.bus.service.CheckService">
+    </service>
+
+    <!-- 医院个性化服务-->
+    <dao id="bussDescriptionDAO" class="eh.base.dao.BussDescriptionDAO"></dao>
+    <service id="bussDescription" ref="bussDescriptionDAO"></service>
+
+
+    <dao id="checkSmsInfoDAO" class="eh.bus.dao.CheckSmsInfoDAO"/>
+    <service id="checkSmsInfo" ref="checkSmsInfoDAO">
+    </service>
+
+    <service id="alidayuSms" class="eh.util.AlidayuSms">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <dao id="subscribeDAO" class="eh.wxpay.dao.WxSubscribeDAO"/>
+    <service id="wxSubscribe" ref="subscribeDAO">
+    </service>
+    <service id="subscribeService" class="eh.wxpay.service.SubscribeService"></service>
+
+    <!--团队相关服务 -->
+    <service id="doctorGroupService" class="eh.base.service.DoctorGroupService"></service>
+
+    <!--医生信息相关服务 -->
+    <service id="doctorInfoService" class="eh.base.service.DoctorInfoService"></service>
+    <!--点赞服务-->
+    <service id="patientFeedbackService" class="eh.base.service.PatientFeedbackService"></service>
+
+
+    <!-- 环信相关IM接口 -->
+    <service id="imService" class="eh.msg.service.EasemobIMService"/>
+
+
+    <dao-write id="organConfigWriteDAO" class="eh.base.dao.OrganConfigWriteDAO"/>
+    <dao id="organConfigDAO" class="eh.base.dao.OrganConfigDAO">
+        <property name="writeDAO" ref="organConfigWriteDAO"/>
+    </dao>
+    <service id="docIndexService" class="eh.cdr.service.DocIndexService">
+    </service>
+    <service id="urlResourceService" class="eh.base.service.UrlResourceService"></service>
+    <service id="messagePushService" class="eh.msg.service.MessagePushService"></service>
+    <service id="basicInfoService" class="eh.base.service.thirdparty.BasicInfoService"></service>
+
+    <!-- 签约申请记录表操作 -->
+    <dao id="signRecordDAO" class="eh.mpi.dao.SignRecordDAO"/>
+    <!-- 签约申请 -->
+    <service id="requestSignRecordService" class="eh.mpi.service.sign.RequestSignRecordService"/>
+    <!-- 签约申请列表 -->
+    <service id="signRecordService" class="eh.mpi.service.sign.SignRecordService"/>
+    <!-- 接收签约 -->
+    <service id="acceptSignService" class="eh.mpi.service.sign.AcceptSignService"/>
+    <!-- 拒绝签约 -->
+    <service id="refuseSignService" class="eh.mpi.service.sign.RefuseSignService"/>
+    <!-- 协议查询 -->
+    <dao id="agreeMentDAO" class="eh.mpi.dao.AgreeMentDAO"/>
+    <service id="agreeMentQueryService" class="eh.mpi.service.agreement.AgreeMentQueryService"/>
+
+    <!--签约患者类型DAO-->
+    <dao id="signPatientLabelDAO" class="eh.mpi.dao.SignPatientLabelDAO"/>
+    <!--PC端签约-->
+    <service id="examinationSignService" class="eh.mpi.service.sign.ExaminationSignService"/>
+
+    <!-- 运营平台 organConfigService 服务-->
+    <service id="organConfigService" class="eh.base.service.organ.OrganConfigService"></service>
+    <!-- 运营平台 微信模板消息 服务-->
+    <dao id="wechatModuleMessageDAO" class="eh.op.dao.WechatModuleMessageDAO"/>
+    <service id="wechatModuleMessageOpService" class="eh.op.service.WechatModuleMessageOpService"></service>
+
+    <!-- 运营平台 站内消息 服务-->
+    <dao id="internalSystemMessageDAO" class="eh.op.dao.InternalSystemMessageDAO"/>
+    <service id="internalSystemMessageOpService" class="eh.op.service.InternalSystemMessageOpService"></service>
+
+    <!-- 运营平台排班服务 -->
+    <service id="scheduleOpService" class="eh.op.service.ScheduleOpService"></service>
+
+    <!-- 运营平台号源管理服务 -->
+    <service id="appointSourceOpService" class="eh.op.service.AppointSourceOpService"></service>
+
+    <!-- 运营平台号源服务 -->
+    <service id="sourceOpService" class="eh.op.service.SourceOpService"></service>
+    <!-- 运营平台预约服务 -->
+    <service id="appointOpService" class="eh.op.service.AppointOpService"></service>
+    <!-- 运营平台医技检查相关服务 -->
+    <service id="checkRequestOpService" class="eh.op.service.CheckRequestOpService"></service>
+    <!-- 运营平台挂号科室维护相关服务 -->
+    <service id="appointDepartOpService" class="eh.op.service.AppointDepartOpService"></service>
+    <!-- 运营平台医生审核相关服务 -->
+    <dao id="auditDoctorLogDAO" class="eh.bus.dao.AuditDoctorLogDAO"/>
+    <service id="auditDoctorOpService" class="eh.op.service.AuditDoctorOpService"></service>
+    <!-- 运营平台His维护相关服务 -->
+    <dao id="rpcHisServiceNameDAO" class="eh.op.dao.RpcHisServiceNameDAO"/>
+    <service id="hisServiceConfigOpService" class="eh.op.service.HisServiceConfigOpService"></service>
+    <!-- 运营平台Doctor维护相关服务 -->
+    <service id="doctorOpService" class="eh.op.service.DoctorOpService"></service>
+    <!-- 运营平台RPCServiceInfo维护相关服务 -->
+    <dao id="rpcServiceInfoDao" class="eh.op.dao.RpcServiceInfoDao"/>
+    <service id="rpcServiceInfoOpService" class="eh.op.service.RpcServiceInfoOpService"></service>
+    <!-- 运营平台Consult相关服务 -->
+    <service id="consultOpService" class="eh.op.service.ConsultOpService"></service>
+    <!-- 运营平台Transfer相关服务 -->
+    <service id="transferOpService" class="eh.op.service.TransferOpService"></service>
+    <!-- 运营平台MeetClinic相关服务 -->
+    <service id="meetClinicOpService" class="eh.op.service.MeetClinicOpService"></service>
+
+    <!-- 运营平台CRM用户查询相关服务 -->
+    <dao id="crmUserDAO" class="eh.op.dao.CrmUserDAO"/>
+    <service id="crmDAO" ref="crmUserDAO"/>
+    <service id="crmService" class="eh.op.service.CRMService"></service>
+
+    <!-- 运营平台加载页|Banner相关服务 -->
+    <dao id="bannerDAO" class="eh.op.dao.BannerDAO"/>
+    <dao id="bannerTargetDAO" class="eh.op.dao.BannerTargetDAO"/>
+    <service id="bannerService" class="eh.op.service.BannerService"></service>
+
+    <!-- 运营平台相关业务操作日志记录相关 -->
+    <dao id="busActionLogDAO" class="eh.base.dao.BusActionLogDAO"/>
+    <service id="busActionLogService" class="eh.base.service.BusActionLogService"></service>
+
+    <!-- 运营平台微信公众管理相关服务 -->
+    <dao id="wxNewsMsgDAO" class="eh.op.dao.WXNewsMsgDAO"/>
+    <dao id="wxConfigsDAO" class="eh.op.dao.WXConfigsDAO"/>
+    <service id="opWxConfig" ref="wxConfigsDAO"></service>
+    <service id="wxConfigService" class="eh.op.service.WXConfigService"></service>
+
+    <!-- 运营平台微信公众提示消息相关服务 -->
+    <dao id="wxMsgConfigDAO" class="eh.op.dao.WXMsgConfigDAO"/>
+    <service id="wxMsgConfigService" class="eh.op.service.WXMsgConfigService"></service>
+
+    <!-- 运营平台版本机构|医生签约相关服务 -->
+    <service id="signSetOpService" class="eh.op.service.SignSetOpService"></service>
+
+    <!-- 运营平台版本更新维护相关 -->
+    <service id="versionControlOpService" class="eh.op.service.VersionControlOpService"></service>
+
+    <!-- 运营平台 用户权限管理相关服务-->
+    <dao id="authGroupDAO" class="eh.op.auth.dao.OpGroupDAO"/>
+    <dao id="permissionDAO" class="eh.op.auth.dao.PermissionDAO"/>
+    <dao id="userGroupDAO" class="eh.op.auth.dao.UserGroupDAO"/>
+    <service id="securityService" class="eh.op.auth.service.SecurityService"/>
+
+    <!-- 运营平台 医生提现 相关服务 -->
+    <dao id="paymentDetailDAO" class="eh.base.dao.PaymentDetailDAO"/>
+    <service id="doctorWithdrawService" class="eh.op.service.DoctorWithdrawService"/>
+
+    <!-- 运营平台 决策系统相关用户角色 服务 -->
+    <dao id="userRoleExtensionDAO" class="eh.op.dao.UserRoleExtensionDAO"/>
+    <service id="userRoleExtensionService" class="eh.op.service.UserRoleExtensionService"/>
+
+    <!-- 机构病人信息-->
+    <dao id="organPatientDAO" class="eh.bus.dao.OrganPatientDAO"/>
+    <service id="organPatient" ref="organPatientDAO"/>
+
+    <dao id="hisRemindDAO" class="eh.bus.dao.HisRemindDAO"/>
+    <service id="hisRemind" ref="hisRemindDAO"/>
+    <service id="hisRemindService" class="eh.bus.service.HisRemindService"/>
+
+    <!--webservice良渚his查询医生排班信息 -->
+    <dao id="schedulingService" class="eh.bus.service.SchedulingService"/>
+    <service id="schedulDoctorService" ref="schedulingService"/>
+
+    <dao id="clientSetDAO" class="eh.bus.dao.ClientSetDAO"/>
+    <service id="clientSet" ref="clientSetDAO"/>
+
+    <!--住院缴费 -->
+    <dao id="inHospitalDAO" class="eh.bus.dao.InHospitalPrepaidDAO"/>
+
+    <!--his服务信息缓存类 -->
+    <service id="rpcServiceInfoStore" class="eh.util.RpcServiceInfoStore"/>
+
+    <dao id="phyFormDAO" class="eh.cdr.dao.PhyFormDAO"/>
+
+    <!-- 首页九宫格设计 -->
+    <dao id="scratchableDAO" class="eh.base.dao.ScratchableDAO"/>
+    <service id="scratchableService" class="eh.base.service.ScratchableService"/>
+
+    <dao id="payBusinessDAO" class="eh.bus.dao.PayBusinessDAO" serviceId="payBusinessService"/>
+    <!--<service id="paymentPushMsg" class="eh.bus.service.payment.PaymentPushMsg"/>-->
+    <service id="paymentService" class="eh.bus.service.payment.PaymentService"/>
+    <service id="queryOutpatient" class="eh.bus.service.payment.QueryOutpatient"/>
+
+    <service ref="msgAsyncTaskRegistry"/>
+    <service id="wxMsgService" class="eh.bus.service.common.WxMsgSenderService"/>
+    <service id="xingeMsgService" class="eh.bus.service.common.XinGeMsgSenderService"/>
+    <service id="easeMobMsgSenderService" class="eh.bus.service.common.EaseMobMsgSenderService"/>
+    <service id="systemMsgSenderService" class="eh.bus.service.common.SystemMsgSenderService"/>
+
+    <!-- 视频平台相关数据 -->
+    <dao id="videoInfoDAO" class="eh.bus.dao.VideoInfoDAO"/>
+    <service id="videoInfo" ref="videoInfoDAO"/>
+
+    <service id="videoService" class="eh.bus.service.VideoService"/>
+
+    <!-- 健康管家 -->
+    <service id="houseKeeperService" class="eh.bus.service.housekeeper.HouseKeeperService"/>
+
+    <!-- 健康管家-签约后续操作 -->
+    <service id="signToPayService" class="eh.mpi.service.sign.SignToPayService"/>
+
+    <!-- 模块使用记录-->
+    <dao id="moduleUseLogDao" class="eh.bus.dao.ModuleUseLogDao"/>
+    <service id="moduleUseLogService" class="eh.bus.service.ModuleUseLogService"/>
+
+
+    <dao id="bankDAO" class="eh.base.dao.BankDAO"/>
+    <service id="bankService" class="eh.base.service.BankService"/>
+
+    <dao id="doctorBankCardDAO" class="eh.base.dao.DoctorBankCardDAO"/>
+    <service id="doctorBankCardService" class="eh.base.service.DoctorBankCardService"/>
+
+    <!-- 资讯服务 -->
+    <dao id="infoCollectionDAO" class="eh.msg.dao.InfoCollectionDAO"/>
+    <service id="informationService" class="eh.bus.service.information.InformationService"/>
+
+    <service id="payWayService" class="eh.wxpay.service.PayWayService"/>
+
+    <!-- 机构业务支付方式-->
+    <dao id="payConfigDAO" class="eh.base.dao.PayConfigDAO"/>
+    <dao id="defaultPayTargetDAO" class="eh.base.dao.DefaultPayTargetDAO"/>
+    <dao id="aliPayConfigDAO" class="eh.base.dao.AliPayConfigDAO"/>
+    <service id="aliPayConfig" ref="aliPayConfigDAO"/>
+    <service id="aliPayConfigService" class="eh.base.service.AliPayConfigService"/>
+    <service id="payConfigService" class="eh.base.service.PayConfigService"/>
+
+    <service id="sessionDetailService" class="eh.msg.service.SessionDetailService"/>
+
+    <service id="adviceService" class="eh.base.service.AdviceService"/>
+
+    <service id="ngariService" class="eh.push.NgariService"/>
+
+    <dao id="outpatientDAO" class="eh.bus.dao.OutpatientDAO" serviceId="outpatientService"/>
+    <service id="medicalInsuranceService" class="eh.bus.service.payment.DaBaiMedicalInsuranceService"/>
+    <service id="clinicEmrService" class="eh.cdr.service.ClinicEmrService"></service>
+
+    <service id="aliPayService" class="eh.alipay.service.AliPayService"/>
+    <service id="doPayService" class="eh.wxpay.service.PayService"/>
+    <s:bean id="ngariPayService" class="eh.wxpay.service.NgariPayService">
+        <s:property name="payService" ref="doPayService"/>
+        <s:property name="payWayService" ref="payWayService"/>
+    </s:bean>
+    <service id="payService" ref="ngariPayService"/>
+    <!--<service id="aliRefundService" class="eh.alipay.service.AliRefundService"/>-->
+    <service id="unifiedRefundService" class="eh.unifiedpay.service.UnifiedRefundService"/>
+    <s:bean id="ngariRefundService" class="eh.wxpay.service.NgariRefundService">
+        <s:property name="unifiedRefundService" ref="unifiedRefundService"/>
+    </s:bean>
+    <service id="refundService" ref="ngariRefundService"/>
+    <!--机构业务提示文案-->
+    <dao id="organBusAdvertisementDAO" class="eh.base.dao.OrganBusAdvertisementDAO"/>
+    <service id="organBusAdvertisement" ref="organBusAdvertisementDAO"></service>
+    <service id="organBusAdvertisementService" class="eh.base.service.OrganBusAdvertisementService"></service>
+
+    <!--运营平台处方服务-->
+    <service id="recipeOPServic" class="eh.op.service.RecipeOPService"></service>
+    <!--运营平台敏感词管理-->
+    <dao id="sensitiveWordsOpDAO" class="eh.op.dao.SensitiveWordsOpDAO"/>
+    <service id="sensitiveWordsOp" ref="sensitiveWordsOpDAO"></service>
+    <!--运营平台药企管理-->
+    <service id="drugEnteroriseOpService" class="eh.op.service.DrugEnteroriseOpService"></service>
+    <!--运营平台申诉-->
+    <dao id="complaintRecordDAO" class="eh.bus.dao.ComplaintRecordDAO"/>
+    <service id="complaintRecord" ref="complaintRecordDAO"></service>
+
+
+    <!-- 远程诊断系统医技检查相关服务 -->
+    <dao id="checkRequestImgDAO" class="eh.bus.dao.CheckRequestImgDAO"/>
+    <service id="checkRequestRemoteService" class="eh.op.service.CheckRequestRemoteService"></service>
+
+    <!--excel导入-->
+    <dao id="doctorPointXlsDAO" class="eh.op.dao.DoctorPointXlsDAO"/>
+    <service id="doctorPointXls" ref="doctorPointXlsDAO"></service>
+    <dao id="importExcelInfoDAO" class="eh.op.dao.ImportExcelInfoDAO"/>
+    <dao id="xlsDoctorInfoDAO" class="eh.op.dao.XlsDoctorInfoDAO"/>
+
+    <!-- 评价体系相关服务-->
+    <dao id="evaluationDAO" class="eh.evaluation.dao.EvaluationDAO" serviceId="evaluation"/>
+    <service id="evaluationService" class="eh.evaluation.service.EvaluationService"/>
+
+    <dao id="patientFeedbackCountDAO" class="eh.evaluation.dao.PatientFeedbackCountDAO"/>
+    <service id="patientFeedbackCountService" class="eh.evaluation.service.PatientFeedbackCountService"/>
+
+    <dao id="patientFeedbackRelationTabDAO" class="eh.evaluation.dao.PatientFeedbackRelationTabDAO"/>
+    <service id="patientFeedbackRelationTabService" class="eh.evaluation.service.PatientFeedbackRelationTabService"/>
+
+    <dao id="patientFeedbackTabDAO" class="eh.evaluation.dao.PatientFeedbackTabDAO"/>
+    <service id="patientFeedbackTabService" class="eh.evaluation.service.PatientFeedbackTabService"/>
+
+    <!-- 敏感词过滤服务 -->
+    <dao id="sensitiveWordsDAO" class="eh.evaluation.dao.SensitiveWordsDAO"/>
+    <service id="sensitiveWordsService" class="eh.evaluation.service.SensitiveWordsService"></service>
+
+    <!-- 用户来源记录表 -->
+    <dao id="userSourceDAO" class="eh.mpi.dao.UserSourceDAO"/>
+    <service id="userSourceService" class="eh.mpi.service.UserSourceService"></service>
+    <service id="billService" class="eh.bus.his.service.AppointTodayBillService"></service>
+    <!--<service id="userSourceService" class="eh.mpi.service.UserSourceService"></service>-->
+
+    <service id="couponService" class="eh.coupon.service.CouponService"></service>
+    <reference id="eh.couponBaseService" interface="eh.coupon.remote.ICouponBaseServiceInterface"/>
+
+    <!-- 九宫格模板 -->
+    <dao id="scratchableBoxDAO" class="eh.base.dao.ScratchableBoxDAO"/>
+
+    <dao id="wxAppPropsDAO" class="eh.op.dao.WxAppPropsDAO"/>
+    <service id="wxAppProps" ref="wxAppPropsDAO"></service>
+
+
+    <!-- 运营平台机构信息管理-->
+    <service id="organOPService" class="eh.op.service.OrganOPService"></service>
+    <!-- 运营平台患者信息管理-->
+    <service id="patientOPService" class="eh.op.service.PatientOPService"></service>
+    <!--医生导入-->
+    <service id="xlsDoctorInfoService" class="eh.op.service.XlsDoctorInfoService"></service>
+    <!--医生团队-->
+    <service id="doctorGroupOPService" class="eh.op.service.DoctorGroupOPService"></service>
+
+
+    <!-- 签名服务-->
+    <service id="eSignService" class="eh.esign.ESignService"></service>
+    <service id="scratchableBoxService" class="eh.base.service.ScratchableBoxService"></service>
+
+    <!-- 完善信息自动作废数据日志 -->
+    <dao id="autoInvalidLogDAO" class="eh.mpi.dao.AutoInvalidLogDAO"/>
+
+    <!--医生账户-运营平台-->
+    <service id="doctorAccountOpService" class="eh.op.service.DoctorAccountOpService"></service>
+    <service id="importExcelInfoService" class="eh.op.service.ImportExcelInfoService"></service>
+    <dao id="xlsRelationPatientDAO" class="eh.op.dao.XlsRelationPatientDAO"></dao>
+
+
+    <!--健康评估-->
+    <service id="healthAssessService" ref="healthAssess"/>
+    <reference id="assess.assessService" interface="eh.remote.IAssessService"/>
+
+    <!-- 消息改造后推送服务-->
+    <service id="smsPushService" class="eh.push.SmsPushService"></service>
+
+    <!--首页待处理列表功能-->
+    <dao id="pendingTaskDAO" class="eh.bus.homepage.dao.PendingTaskDAO"/>
+    <service id="pendingTaskService" class="eh.bus.homepage.service.PendingTaskService"/>
+
+    <!--机构和医生关联-->
+    <service id="imageFileReadService" class="eh.bus.service.image.ImageFileReadService"></service>
+    <dao id="patchDAO" class="eh.base.dao.PatchDAO"/>
+
+    <dao id="couponInfoDAO" class="eh.coupon.dao.CouponInfoDAO"/>
+    <!--<service id="couponPushService" class="eh.coupon.service.CouponPushService"></service>-->
+
+    <!--pc端更新-->
+    <service id="patchService" class="eh.base.service.PatchService"/>
+
+    <!--药师审方机构-->
+    <dao id="auditPrescriptionOrganDAO" class="eh.base.dao.AuditPrescriptionOrganDAO"/>
+    <service id="auditPrescriptionOrganService" class="eh.base.service.AuditPrescriptionOrganService"/>
+
+    <!--药品配送价格-->
+    <dao id="drugDistributionPriceDAO" class="eh.cdr.dao.DrugDistributionPriceDAO"/>
+    <service id="drugDistributionPriceService" class="eh.cdr.service.DrugDistributionPriceService"/>
+
+    <service id="userOpService" class="eh.op.service.UserOpService"/>
+    <service id="patientTypeService" class="eh.mpi.service.PatientTypeService"/>
+    <!--地域编码字典-->
+    <dao id="addrAreaDAO" class="eh.base.dao.AddrAreaDAO"/>
+    <service id="addrAreaService" class="eh.base.service.AddrAreaService"/>
+    <dao id="weixinMPDAO" class="eh.wxpay.dao.WeixinMPDAO"/>
+
+
+    <dao id="outpatientResponseDAO" class="eh.bus.dao.OutpatientResponseDAO"/>
+
+    <service id="commonConsultService" class="eh.bus.service.consult.CommonConsultService"/>
+    <service id="expertService" class="eh.bus.service.expert.ExpertInterpretationService"/>
+    <service id="recipeConsultService" class="eh.bus.service.expert.RecipeConsultService"/>
+    <service id="queryFromUserRolesService" class="eh.base.service.QueryFromUserRolesService"/>
+
+    <!--医生白名单-->
+    <dao id="doctorWhiteListDAO" class="eh.base.dao.DoctorWhiteListDAO"/>
+    <service id="doctorWhiteListService" class="eh.base.service.DoctorWhiteListService"/>
+
+    <!--微信自动消息-->
+    <dao id="weChatAutoMsgDAO" class="eh.op.dao.WeChatAutoMsgDAO"/>
+    <service id="weChatAutoMsgService" class="eh.op.service.WeChatAutoMsgService"/>
+    <service id="autoMsgService" class="eh.bus.service.AutoMsgService"/>
+
+    <!--视频资源管理-->
+    <service id="videoVodService" class="eh.bus.service.VideoVodService"/>
+
+    <!-- 二维码保存-->
+    <dao id="qrInfoDAO" class="eh.base.dao.QRInfoDAO"/>
+    <service id="qrInfoService" class="eh.base.service.QRInfoService"/>
+
+    <service id="offlineRefundService" class="eh.wxpay.service.OfflineRefundService"/>
+
+    <!-- 礼品-->
+    <dao id="giftDAO" class="eh.mindgift.dao.GiftDAO"/>
+
+    <!-- 心意 -->
+    <dao id="mindGiftDAO" class="eh.mindgift.dao.MindGiftDAO"/>
+    <service id="mindGiftService" class="eh.mindgift.service.MindGiftService"/>
+    <service id="requestMindGiftService" class="eh.mindgift.service.RequestMindGiftService"/>
+    <service id="mindGiftOpService" class="eh.op.service.MindGiftOpService"/>
+
+    <!--物料表-->
+    <dao id="materialDAO" class="eh.base.dao.MaterialDAO"/>
+    <service id="material" ref="materialDAO"/>
+    <!-- 二维码扫描记录-->
+    <dao id="qrRecordDAO" class="eh.bus.dao.QRRecordDAO"/>
+    <service id="qrRecordService" class="eh.bus.service.QRRecordService"/>
+
+    <!--登录日志-->
+    <service id="logonLogService" class="eh.base.service.LogonLogService"/>
+
+    <service id="commonHisMiddleService" class="eh.msg.service.CommonHisMiddleService"/>
+    <!--机构配置扩展表-->
+    <dao id="extOrganConfigDAO" class="eh.base.dao.OrganConfigExtDAO"/>
+    <service id="organConfigExtService" class="eh.base.service.organ.OrganConfigExtService"/>
+
+    <dao id="oauthAliAppDAO" class="ctd.mvc.alilife.entity.OauthAliAppDAO"/>
+    <dao id="oauthAliMPDAO" class="ctd.mvc.alilife.entity.OauthAliMPDAO" serviceId="oauthAliMpService"/>
+    <dao id="oauthAliAppPropsDAO" class="ctd.mvc.alilife.entity.OauthAliAppPropsDAO"/>
+    <s:bean id="oauthMPService" class="eh.base.service.OauthMPService">
+        <s:constructor-arg name="oauthAliMPDAO" ref="oauthAliMPDAO"/>
+        <s:constructor-arg name="oAuthWeixinMPDAO" ref="oAuthWeixinMPDAO"/>
+    </s:bean>
+
+
+    <dao id="appointControlDAO" class="eh.bus.dao.AppointControlDAO"/>
+    <service id="appointControlService" class="eh.bus.service.AppointControlService"/>
+
+    <dao id="weChatDailyUsersDAO" class="eh.op.dao.WeChatDailyUsersDAO"/>
+    <service id="weChatDailyUsersService" class="eh.op.service.WeChatDailyUsersService"/>
+
+    <dao id="orderDao" class="eh.bus.dao.OrderDao"/>
+
+    <!--业务分成-->
+    <dao id="busMoneyDistributeProportionConfigDAO" class="eh.bus.dao.BusMoneyDistributeProportionConfigDAO"/>
+    <dao id="busMoneyDistributeRecordDAO" class="eh.bus.dao.BusMoneyDistributeRecordDAO"/>
+
+    <!--阿里生活号-->
+    <service id="aliAppOpService" class="eh.op.service.AliAppOpService"/>
+    <!--第三方-->
+    <service id="thirdPartyOpService" class="eh.op.service.ThirdPartyOpService"/>
+
+    <!--云诊室价格配置-->
+    <dao id="organCloudPriceDAO" class="eh.bus.dao.OrganCloudPriceDAO"/>
+    <service id="organCloudPriceService" class="eh.bus.service.OrganCloudPriceService"/>
+
+    <!--云诊室记帐-->
+    <dao id="cloudCostDAO" class="eh.finance.dao.CloudCostDAO"/>
+    <service id="cloudCostService" class="eh.finance.service.CloudCostService"/>
+
+    <!--医生排序权重表-->
+    <dao id="doctorOrderManageDAO" class="eh.base.dao.DoctorOrderManageDAO"/>
+    <service id="doctorOrderManageService" class="eh.base.service.doctor.DoctorOrderManageService"/>
+    <service id="professionService" class="eh.base.service.ProfessionService"/>
+    <!--AppDomainRpcUrl-->
+    <dao id="appDomainRpcUrlDAO" class="eh.base.dao.AppDomainRpcUrlDAO"/>
+    <service id="appDomainRpcUrlService" class="eh.base.service.AppDomainRpcUrlService"/>
+    <!--hiscenter的hisconfig和rpcserviceinfo服务-->
+    <service id="hisServiceConfig" class="eh.base.service.HisCenterConfigService"/>
+
+    <dao id="emergencyDao" class="eh.bus.dao.EmergencyDao"/>
+    <dao id="emergencyDoctorDao" class="eh.bus.dao.EmergencyDoctorDao"/>
+    <service id="emergencyService" class="eh.bus.service.emergency.EmergencyService"/>
+    <!--常用方数据查询服务-->
+    <dao id="commonRecipeDAO" class="eh.cdr.dao.CommonRecipeDAO"/>
+    <dao id="commonRecipeDrugDAO" class="eh.cdr.dao.CommonRecipeDrugDAO"/>
+    <service id="commonRecipeService" class="eh.cdr.service.CommonRecipeService"/>
+    <!--医生属性扩展表 -->
+    <dao id="doctorTabDAO" class="eh.base.dao.DoctorTabDAO"/>
+
+    <!-- TPN健康管家营养算法 -->
+    <dao id="tpnHistoryDAO" class="eh.tpn.TpnHistoryDAO"/>
+    <service id="tPNService" class="eh.tpn.TPNService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <dao id="secretkeyDAO" class="eh.tpn.SecretkeyDAO"/>
+    <service id="secretKeyService" class="eh.tpn.SecretKeyService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <dao id="secretkeyTokenDAO" class="eh.tpn.SecretkeyTokenDAO"/>
+    <service id="secretKeyTokenService" class="eh.tpn.SecretKeyTokenService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+
+    <dao id="messagePushConfigDAO" class="eh.base.dao.MessagePushConfigDAO"/>
+    <service id="messagePushConfigService" class="eh.base.service.MessagePushConfigService">
+        <property name="mvc_authentication">false</property>
+    </service>
+
+    <!-- 活动相关服务配置 -->
+    <dao id="prmtBasicDAO" class="eh.prmt.dao.PrmtBasicDAO"/>
+    <service id="prmtBasicService" class="eh.prmt.service.PrmtBasicService"/>
+
+    <dao id="prmtSignupInfoDAO" class="eh.prmt.dao.PrmtSignupInfoDAO"/>
+    <service id="prmtSignupInfoService" class="eh.prmt.service.PrmtSignupInfoService"/>
+
+
+    <!-- 医生端业务评价 -->
+    <dao id="evaluateDAO" class="eh.bus.dao.EvaluateDAO" service="true" serviceId="evaluate"/>
+    <service id="evaluateService" class="eh.bus.service.EvaluateService"/>
+
+    <!--处方操作日志-->
+    <service id="recipeLogService" class="eh.cdr.service.RecipeLogService"/>
+    <!--上海六院数据导入-->
+    <dao id="hospitalDataDao" class="eh.bus.dao.HospitalDataDAO"/>
+    <dao id="hospitalUserDAO" class="eh.bus.dao.HospitalUserDAO"/>
+    <service id="hospitalDataService" class="eh.bus.excel.HospitalDataService"/>
+    <service id="unitOpauthorizeService" class="eh.base.service.UnitOpauthorizeService"/>
+    <service id="organCheckItemService" class="eh.base.service.OrganCheckItemService"/>
+    <!--职称字典-->
+    <dao id="proTitleDAO" class="eh.base.dao.ProTitleDAO"/>
+    <service id="proTitleService" class="eh.base.service.ProTitleService"/>
+    <!--机构职称-->
+    <dao id="organProTitleDAO" class="eh.base.dao.OrganProTitleDAO"/>
+    <service id="organProTitleService" class="eh.base.service.OrganProTitleService"/>
+
+    <!--医生直播间-->
+    <dao id="doctorLiveDAO" class="eh.cdr.dao.DoctorLiveDAO"/>
+    <service id="doctorLive" ref="doctorLiveDAO">
+    </service>
+    <service id="doctorLiveService" class="eh.cdr.service.DoctorLiveService">
+    </service>
+
+    <dao id="accountInfoDAO" class="eh.base.dao.AccountInfoDAO"/>
+    <s:bean id="doctorRevenueService" class="eh.base.service.DoctorRevenueService"/>
+
+    <!--预约挂号网站-->
+    <reference id="ehop.yuYueOrganService" interface="eh.remote.IYuYueQueryServiceInterface"/>
+    <reference id="ehop.yuYueDoctorService" interface="eh.remote.IYuYueQueryServiceInterface"/>
+    <reference id="ehop.yuYueAppointScheduleService" interface="eh.remote.IYuYueQueryServiceInterface"/>
+    <reference id="ehop.yuYueDeptmentService" interface="eh.remote.IYuYueQueryServiceInterface"/>
+    <reference id="ehop.yuYueAppointSourceService" interface="eh.remote.IYuYueQueryServiceInterface"/>
+
+    <service id="webVerfyCode" class="eh.op.redis.WebVerfyCode"/>
+    <service id="busMoneyDistributeProportionConfigService"
+             class="eh.bus.service.BusMoneyDistributeProportionConfigService"/>
+    <!--医生附加信息-->
+    <service id="doctorTabService" class="eh.base.service.DoctorTabService"/>
+
+
+    <!--三伏天活动-->
+    <service id="dogDaysService" class="eh.activity.service.DogDaysService"/>
+    <!--单边帐-->
+    <service id="orderOpService" class="eh.op.service.OrderOpService"/>
+    <!--支付账号-->
+    <dao id="paymentAccountDAO" class="eh.pay.dao.PaymentAccountDAO"/>
+    <dao id="paymentBusinessDAO" class="eh.pay.dao.PaymentBusinessDAO"/>
+    <dao id="paymentClientDAO" class="eh.pay.dao.PaymentClientDAO"/>
+    <dao id="paymentConfigDAO" class="eh.pay.dao.PaymentConfigDAO"/>
+    <dao id="clientConfigDAO" class="eh.base.dao.ClientConfigDAO"/>
+
+    <service id="paymentAccountService" class="eh.pay.service.PaymentAccountService"/>
+    <service id="paymentConfigService" class="eh.pay.service.PaymentConfigService"/>
+    <service id="paymentBusinessService" class="eh.pay.service.PaymentBusinessService"/>
+    <service id="clientConfigService" class="eh.base.service.ClientConfigService"/>
+    <service id="paymentClientService" class="eh.pay.service.PaymentClientService"/>
+
+    <!--随访-->
+    <dao id="follwModuleLimitDAO" class="eh.mpi.dao.FollwModuleLimitDAO"/>
+
+    <!--运营平台同步医生，机构状态-->
+    <reference id="ehop.localOrganTotalBusinessStatisticsService" interface="eh.remote.IOpDoctorAndOrganService"/>
+    <reference id="ehop.localDoctorBusinessStatisticsService" interface="eh.remote.IOpDoctorAndOrganService"/>
+    <!--运营平台威信关注、取消关注服务 -->
+    <reference id="ehop.wxUserInfoService" interface="eh.remote.IWxUserInfoServiceInterface"/>
+    <!-- his患者数据-->
+    <service id="hisPatientService" class="eh.his.service.HisPatientService"/>
+</s:beans>

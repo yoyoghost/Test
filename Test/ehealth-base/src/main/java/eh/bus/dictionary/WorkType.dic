@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="全天"/>
+	<item key="1" text="上午"/>
+	<item key="2" text="下午"/>
+	<item key="3" text="晚上"/>
+	<item key="11" text="中午"/>
+</dic>

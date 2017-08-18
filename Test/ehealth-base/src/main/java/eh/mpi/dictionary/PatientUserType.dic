@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="0" text="成人"/>
+	<item key="1" text="儿童(有身份证)"/>
+	<item key="2" text="儿童(无身份证)"/>
+</dic>

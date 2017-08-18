@@ -1,0 +1,8 @@
+{
+	"patientName":"ss",
+	"idcard":"332603198002205674",
+	"birthday":"1980-02-02",
+	"healthCards":[
+		{"cardId":"1234345","cardOrgan":1,"cardType":"1"}
+	]
+ }

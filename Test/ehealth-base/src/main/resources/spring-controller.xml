@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssdev="http://www.ngarihealth.com/schema/ssdev"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       			http://www.ngarihealth.com/schema/ssdev http://www.ngarihealth.com/schema/ssdev/ssdev.xsd">
+
+    <!-- service register center -->
+    <ssdev:applicationDomain name="eh" registryAddress="${zk}" serverId="config01"/>
+    <ssdev:connector url="${master.url}" deployHost="${master.deployHost}">
+        <ssdev:filter id="json"/>
+        <ssdev:filter id="urt"/>
+    </ssdev:connector>
+
+    <!-- broadcast server -->
+    <ssdev:broadcast host="${broadcast.server.host}" port="${broadcast.server.port}">
+    </ssdev:broadcast>
+
+    <!-- publisher server -->
+    <ssdev:publisher id="publisher" local="true" type="netty"/>
+
+    <!-- monitor -->
+    <!--<ssdev:dao id="serverNodePrefLogDAO" class="ctd.mixin.rpc.log.dao.ServerNodePrefLogDAO"/>-->
+    <!--<ssdev:dao id="invokeStatLogDAO" class="ctd.mixin.rpc.log.dao.InvokeStatLogDAO"/>-->
+    <!--<ssdev:monitor domains="eh"/>-->
+    <!-- log -->
+    <ssdev:logger type="broadcast">
+        <ssdev:serverNodeExDataBuilder id="datasourceExData"/>
+        <ssdev:serverNodePerfLogExDataBuilder id="datasourcePerfLogExData"/>
+    </ssdev:logger>
+
+    <!-- dao -->
+    <ssdev:dao id="userDAO" class="ctd.persistence.support.impl.user.UserDAO"/>
+    <ssdev:dao id="roleDAO" class="ctd.persistence.support.impl.role.RoleDAO"/>
+    <ssdev:dao id="userRoleTokenDAO" class="ctd.persistence.support.impl.user.UserRoleTokenDAO"/>
+    <ssdev:dao id="accessTokenDAO" class="ctd.persistence.support.impl.access.AccessTokenDAO"/>
+
+    <!-- user -->
+    <bean id="userUpdater" class="ctd.persistence.support.impl.user.UserUpdater">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+    <ssdev:service ref="userUpdater"/>
+    <bean id="userLoader" class="eh.base.user.EhUserLocalLoader">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+    <bean id="userController" class="ctd.account.user.UserController">
+        <property name="loader" ref="userLoader"/>
+        <property name="updater" ref="userUpdater"/>
+    </bean>
+    <bean id="userWatcher" class="ctd.account.user.UserWatcher" lazy-init="false">
+        <property name="controller" ref="userController"/>
+    </bean>
+
+    <!-- role -->
+    <bean id="roleUpdater" class="ctd.persistence.support.impl.role.RoleUpdater">
+        <property name="roleDAO" ref="roleDAO"/>
+    </bean>
+    <ssdev:service ref="roleUpdater"/>
+    <bean id="roleLoader" class="ctd.persistence.support.impl.role.RoleLocalLoader">
+        <property name="roleDAO" ref="roleDAO"/>
+    </bean>
+    <bean id="roleController" class="ctd.account.role.RoleController">
+        <property name="loader" ref="roleLoader"/>
+        <property name="updater" ref="roleUpdater"/>
+    </bean>
+    <bean id="roleWatcher" class="ctd.account.role.RoleWatcher" lazy-init="false">
+        <property name="controller" ref="roleController"/>
+    </bean>
+
+    <!-- accessToken -->
+    <bean id="accessTokenUpdater" class="ctd.persistence.support.impl.access.AccessTokenUpdater">
+    </bean>
+    <ssdev:service ref="accessTokenUpdater"/>
+    <bean id="accessTokenLoader" class="ctd.persistence.support.impl.access.AccessTokenLocalLoader"/>
+    <bean id="accessTokenController" class="ctd.access.AccessTokenController">
+        <property name="loader" ref="accessTokenLoader"/>
+        <property name="updater" ref="accessTokenUpdater"/>
+    </bean>
+    <bean id="accessTokenWatcher" class="ctd.access.AccessTokenWatcher" lazy-init="false">
+        <property name="controller" ref="accessTokenController"/>
+    </bean>
+
+    <!-- dictionary -->
+    <bean id="dictionaryUpdater" class="ctd.dictionary.updater.DictionaryUpdater">
+    </bean>
+    <ssdev:service ref="dictionaryUpdater"/>
+    <bean id="dictionaryLoader" class="ctd.dictionary.loader.DictionaryLocalLoader"/>
+    <bean id="dictionaryController" class="ctd.dictionary.DictionaryController">
+        <property name="loader" ref="dictionaryLoader"/>
+        <property name="updater" ref="dictionaryUpdater"/>
+    </bean>
+    <bean id="dictionaryWatcher" class="ctd.dictionary.DictionaryWatcher" lazy-init="false">
+        <property name="controller" ref="dictionaryController"/>
+    </bean>
+
+    <!-- application -->
+    <bean id="applicationUpdater" class="ctd.app.updater.ApplicationUpdater">
+    </bean>
+    <ssdev:service ref="applicationUpdater"/>
+    <bean id="applicationLoader" class="ctd.app.loader.ApplicationLocalLoader"/>
+    <bean id="applicationController" class="ctd.app.ApplicationController">
+        <property name="loader" ref="applicationLoader"/>
+        <property name="updater" ref="applicationUpdater"/>
+    </bean>
+    <bean id="applicationWatcher" class="ctd.app.ApplicationWatcher" lazy-init="false">
+        <property name="controller" ref="applicationController"/>
+    </bean>
+
+    <!-- categoryNode -->
+    <bean id="categoryNodeUpdater" class="ctd.security.updater.CategoryNodeUpdater">
+    </bean>
+    <ssdev:service ref="categoryNodeUpdater"/>
+    <bean id="categoryNodeLocalLoader" class="ctd.security.loader.CategoryNodeLocalLoader"/>
+    <bean id="categoryNodeController" class="ctd.security.CategoryNodeController">
+        <property name="loader" ref="categoryNodeLocalLoader"/>
+        <property name="updater" ref="categoryNodeUpdater"/>
+    </bean>
+    <bean id="categoryNodeWatcher" class="ctd.security.CategoryNodeWatcher" lazy-init="false">
+        <property name="controller" ref="categoryNodeController"/>
+    </bean>
+
+    <!-- schema -->
+    <bean id="schemaUpdater" class="ctd.schema.updater.SchemaUpdater">
+    </bean>
+    <ssdev:service ref="schemaUpdater"/>
+    <bean id="schemaLocalLoader" class="ctd.schema.loader.SchemaLocalLoader"/>
+    <bean id="schemaController" class="ctd.schema.SchemaController">
+        <property name="loader" ref="schemaLocalLoader"/>
+        <property name="updater" ref="schemaUpdater"/>
+    </bean>
+    <bean id="schemaWatcher" class="ctd.schema.SchemaWatcher" lazy-init="false">
+        <property name="controller" ref="schemaController"/>
+    </bean>
+
+    <!-- Tenant -->
+    <bean id="tenantUpdater" class="ctd.account.tenant.updater.TenantUpdater"></bean>
+    <ssdev:service ref="tenantUpdater"/>
+    <bean id="tenantLocalLoader" class="ctd.account.tenant.loader.TenantLocalLoader"></bean>
+    <bean id="tenantController" class="ctd.account.tenant.TenantController">
+        <property name="loader" ref="tenantLocalLoader"/>
+        <property name="updater" ref="tenantUpdater"/>
+    </bean>
+    <bean id="tenantWatcher" class="ctd.account.tenant.TenantWatcher" lazy-init="false">
+        <property name="controller" ref="tenantController"/>
+    </bean>
+
+    <!-- service provider -->
+    <ssdev:service id="userRemoteLoader" class="ctd.account.user.loader.UserRemoteLoader"/>
+    <ssdev:service id="roleRemoteLoader" class="ctd.account.role.loader.RoleRemoteLoader"/>
+    <ssdev:service id="accessTokenRemoteLoader" class="ctd.access.loader.AccessTokenRemoteLoader"/>
+    <ssdev:service id="dictionaryRemoteLoader" class="ctd.dictionary.loader.DictionaryRemoteLoader"/>
+    <ssdev:service id="appRemoteLoader" class="ctd.app.loader.ApplicationRemoteLoader"/>
+    <ssdev:service id="categoryNodeRemoteLoader" class="ctd.security.loader.CategoryNodeRemoteLoader"/>
+    <ssdev:service id="schemaRemoteLoader" class="ctd.schema.loader.SchemaRemoteLoader"/>
+    <ssdev:service id="tenantRemoteLoader" class="ctd.account.tenant.loader.TenantRemoteLoader"/>
+
+    <!-- session updater -->
+    <bean class="ctd.account.session.SessionItemManager"/>
+</beans>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:ssdev="http://www.ngarihealth.com/schema/ssdev"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       	http://www.ngarihealth.com/schema/ssdev http://www.ngarihealth.com/schema/ssdev/ssdev.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- used by config server -->
+    <context:property-placeholder location="classpath:config.properties" file-encoding="UTF-8" />
+
+    <bean id="globalEventExecFactory" class="ctd.util.event.GlobalEventExecFactory" init-method="init" destroy-method="shutdown">
+        <property name="threads" value="50"/>
+    </bean>
+
+    <import resource="spring-hibernate.xml"/>
+    <import resource="spring-controller.xml"/>
+    <import resource="classpath:/ctd/util/exp/spring-expr-base.xml"/>
+
+    <!-- for EhUserLocalLoader -->
+    <ssdev:dao id="doctorDAO" class="eh.base.dao.DoctorDAO"/>
+    <ssdev:dao-write id="employmentWriteDAO" class="eh.base.dao.EmploymentWriteDAO"/>
+    <ssdev:dao id="employmentDAO" class="eh.base.dao.EmploymentDAO">
+        <ssdev:property name="writeDAO" ref="employmentWriteDAO"/>
+    </ssdev:dao>
+    <ssdev:dao id="patientDAO" class="eh.mpi.dao.PatientDAO"/>
+    <ssdev:dao id="patientTypeDAO" class="eh.mpi.dao.PatientTypeDAO"/>
+    <ssdev:dao id="oAuthWeixinMPDAO" class="ctd.mvc.weixin.entity.OAuthWeixinMPDAO"/>
+    <ssdev:dao id="organDAO" class="eh.base.dao.OrganDAO" />
+    <ssdev:dao id="departmentDAO" class="eh.base.dao.DepartmentDAO" />
+    <ssdev:dao id="chemistDAO" class="eh.base.dao.ChemistDAO" />
+    <ssdev:dao id="addrAreaDAO" class="eh.base.dao.AddrAreaDAO"/>
+    <ssdev:dao id="professionDAO" class="eh.base.dao.ProfessionDAO"/>
+    <ssdev:dao id="patientFeedbackTabDAO" class="eh.evaluation.dao.PatientFeedbackTabDAO"/>
+    <ssdev:dao id="proTitleDAO" class="eh.base.dao.ProTitleDAO"/>
+</beans>
+

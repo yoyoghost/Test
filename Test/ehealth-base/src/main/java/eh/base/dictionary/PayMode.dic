@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="1" text="支付宝"/>
+	<item key="2" text="手机充值"/>
+	<item key="3" text="银行卡"/>
+</dic>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="01" text="CDA"/>
+	<item key="02" text="BSXML"/>
+	<item key="11" text="HTMLX"/>
+	<item key="12" text="PDF"/>
+	<item key="13" text="JPG"/>
+</dic>

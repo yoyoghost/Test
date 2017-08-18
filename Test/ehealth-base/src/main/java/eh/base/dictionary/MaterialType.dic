@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dic>
+	<item key="YLB" text="易拉宝"/>
+	<item key="ZJ" text="展架"/>
+	<item key="XCD" text="宣传单"/>
+	<item key="HB" text="海报"/>
+	<item key="TQ" text="台签"/>
+	<item key="SZY" text="三折页"/>
+	<item key="BGJ" text="不干胶"/>
+	<item key="BLB" text="病历本"/>
+	<item key="JZK" text="就诊卡"/>
+	<item key="JCBGD" text="检查报告单"/>
+	<item key="QT" text="其他"/>
+</dic>
